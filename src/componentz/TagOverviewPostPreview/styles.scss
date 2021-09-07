@@ -1,0 +1,65 @@
+@import "../../constants/scss/colors";
+@import "../../constants/scss/variables";
+@import "../../constants/scss/mixins";
+
+.blog-overview-post-preview-wrapper {
+  flex: 0 0 calc(100% / 3);
+  max-width: calc(100% / 3);
+
+  @include tablet() {
+    flex: 0 0 calc(100% / 2);
+    max-width: calc(100% / 2);
+  }
+
+  @include smartphone() {
+    flex: 0 0 calc(100% / 1);
+    max-width: calc(100% / 1);
+  }
+  padding: 1em;
+  .blog-overview-post-preview {
+    width: 100%;
+
+    .tumbnail {
+      background-size: cover;
+      background-position: center;
+      height: 30em;
+      width: 100%;
+      position: relative;
+      box-shadow: $shadow;
+      .for-parents-button {
+        background-color: lighten($color: $for_parents, $amount: 10);
+      }
+      .for-siblings-button {
+        background-color: lighten($color: $for_siblings, $amount: 10);
+      }
+      .for-carers-button {
+        background-color: lighten($color: $for_carers, $amount: 10);
+      }
+      .tag-button {
+        position: absolute;
+        padding: 1em 2em;
+        font-size: 1.1em;
+        top: -1em;
+        left: 0;
+        z-index: 1;
+      }
+      .title-container {
+        padding: 1em;
+        background-color: $white;
+        width: 90%;
+        border-radius: 1em;
+        margin-top: auto;
+        margin-bottom: 2em;
+        .title {
+          font-size: 1.4em;
+        }
+        .time {
+          font-size: 1em;
+        }
+      }
+    }
+    .hook {
+      font-size: 1.1em;
+    }
+  }
+}

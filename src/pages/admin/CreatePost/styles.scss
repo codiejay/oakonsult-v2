@@ -1,0 +1,85 @@
+@import "../../../constants/scss/colors";
+@import "../../../constants/scss/variables";
+@import "../../../constants/scss/mixins";
+
+.noty {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-weight: 600;
+  z-index: 99;
+  text-align: center;
+}
+.success {
+  background-color: #00ff0d8a;
+  color: #00ff0d;
+}
+.error {
+  background-color: #ff00008a;
+  color: #ff0000;
+}
+.create-post {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  padding-top: 2em;
+  .properties,
+  .editor {
+    width: 40%;
+    height: 100%;
+  }
+  .left {
+    padding-right: 2em;
+  }
+  .divider {
+    height: calc(100vh - 10em);
+    width: 0.2em;
+    background-color: $tint;
+  }
+  .editor {
+    padding: 0 1em;
+    width: 60%;
+    height: calc(100vh - 13em);
+  }
+}
+code {
+  margin-bottom: 25px;
+  font-size: 15px;
+  text-align: center;
+}
+.absolute-btns {
+  position: absolute;
+  bottom: 2em;
+  right: 2em;
+  display: flex;
+}
+.tag-label {
+  color: $black;
+  font-size: 1.2em;
+  // font-family: ;
+  margin-left: 0.2em;
+  margin-bottom: 0.5em;
+}
+.post-tag {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  margin-left: 1em;
+
+  .post-tag-text {
+    color: $black;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+  .post-tag-check {
+    cursor: pointer;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.2em solid $tint;
+    transition: all 0.3s ease-in-out;
+    margin-right: 1em;
+  }
+}

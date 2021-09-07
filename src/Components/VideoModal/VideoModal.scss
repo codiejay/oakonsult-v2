@@ -1,0 +1,39 @@
+#VideoModal {
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 155, 167, 0.56);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: not-allowed;
+  #closeVideo {
+    height: 50px;
+    width: 100px;
+    background: rgba(0, 155, 167, 0.56);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  #videoPlayer {
+    height: 75vh;
+    width: 75vw;
+    background: #c4c4c4;
+    cursor: pointer;
+    border-radius: 10px;
+
+    iframe {
+      height: 75vh;
+      width: 75vw;
+      border-radius: 10px;
+    }
+  }
+}

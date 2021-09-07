@@ -1,0 +1,501 @@
+@import '../../constants/scss/colors';
+@import '../../constants/scss/variables';
+@import '../../constants/scss/mixins';
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;700&family=DM+Serif+Display&display=swap');
+$DM: 'DM Serif Display', serif;
+$Archivo: 'Archivo', sans-serif;
+
+$teal: #009ba7;
+$grey: #a9a6a6;
+$blue: #0aa7ff;
+$purple: #ff0ac9;
+$yellow: #ffba0a;
+// $churchPagePurple: #b00aff;
+$gold: #cac492;
+
+@mixin BGConfig($size, $position) {
+  background-position: $position;
+  background-size: $size;
+  background-repeat: no-repeat;
+}
+
+#P_Sintro {
+  display: flex;
+  margin-bottom: 7rem;
+
+  .introTextContent {
+    // background: #a15c5c;
+    width: 60%;
+    .quoteSrc {
+      display: flex;
+      align-items: center;
+      .quote_dash {
+        height: 0.75rem;
+        width: 50px;
+        background: $gold;
+        margin-right: 1rem;
+      }
+      #quoteSource {
+        font-size: 30px;
+        font-family: $Archivo;
+      }
+    }
+    #quote {
+      font-family: $DM;
+      text-transform: uppercase;
+      font-size: 78px;
+      font-weight: normal;
+      //   max-width: 90%;
+      margin-bottom: 4rem;
+      line-height: auto;
+    }
+    #quoteText {
+      font-family: $Archivo;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 31px;
+      width: 80%;
+      color: rgba(0, 0, 0, 0.66);
+      margin-bottom: 4rem;
+    }
+    #watchStory {
+      background: $gold;
+      height: 64px;
+      width: 248px;
+      display: flex;
+      align-items: center;
+      border-radius: 300px;
+      // padding: 1rem 0;
+      cursor: pointer;
+
+      .icon {
+        height: '50px';
+        width: '50px';
+        background-image: url(../../Assets/icons/tealPlayBtn.svg);
+        @include BGConfig(80%, center);
+      }
+
+      .text {
+        font-size: 22px;
+        color: white;
+      }
+    }
+  }
+
+  .introVideoButton {
+    width: 40%;
+
+    .hexagon {
+      height: 600px;
+      width: 500px;
+      margin-top: -30px;
+      background: url(../../Assets/images/PublicSpeaking.svg);
+      @include BGConfig(100%, top);
+      position: relative;
+    }
+  }
+}
+#PS_goals {
+  background: url(../../Assets/images/training.jpg);
+  @include BGConfig(120%, center);
+  height: max-content;
+  border-radius: 10px;
+
+  .bgLayer {
+    background: $gold;
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    padding-bottom: 4rem;
+  }
+  // #heartIcon {
+  //   height: 100px;
+  //   width: 100px;
+  //   background: url(../../Assets/icons/tealHeartIcon.svg);
+  //   @include BGConfig(100%, center);
+  //   // margin-top: 6rem;
+  // }
+
+  ul {
+    li {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 23px;
+      line-height: 41px;
+      color: rgba(0, 0, 0, 0.49);
+      list-style: outside;
+      margin-bottom: 1rem;
+    }
+  }
+  h1 {
+    font-family: $DM;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 55px;
+    color: #000000;
+    position: relative;
+    margin-bottom: 3rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -1rem;
+      width: 80px;
+      height: 10px;
+      background: $teal;
+      border-radius: 10px;
+    }
+  }
+}
+
+#PS_forYou {
+  width: 859px;
+  height: max-content;
+  background: #ffffff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.178);
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  margin: -4rem 0 0 2rem;
+
+  p {
+    font-family: $Archivo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26.4px;
+    line-height: 47.2px;
+    margin: 2rem 0;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.75rem;
+      width: 70px;
+      height: 10px;
+      background: $gold;
+      border-radius: 10px;
+    }
+  }
+
+  ul {
+    li {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 23px;
+      line-height: 41px;
+      color: rgba(0, 0, 0, 0.49);
+      list-style: inside;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+#topicsSection {
+  margin-top: 4rem;
+  #questionAndImage {
+    display: flex;
+    justify-content: space-between;
+    #questions {
+      padding-top: 2rem;
+      h3 {
+        font-family: $DM;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 55px;
+        line-height: 98px;
+        color: #000000;
+        margin-bottom: 2rem;
+      }
+      ul {
+        li {
+          font-style: normal;
+          font-weight: normal;
+          font-size: 22px;
+          line-height: 27px;
+          margin-bottom: 1.5rem;
+          list-style: url(../../Assets/icons/hyphen.svg);
+          margin-left: 1rem;
+        }
+      }
+    }
+    #PS_Image {
+      width: 553px;
+      height: 611px;
+      background: url(../../Assets/images/orangePublicSpeaking.svg);
+      @include BGConfig(100%, center);
+    }
+  }
+
+  #note {
+    margin-top: 6rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 51px;
+    padding: 0 1rem;
+    color: #ffffff;
+    height: max-content;
+    background: $gold;
+    height: 255px;
+    border-radius: 22px;
+  }
+
+  #whatWeDiscuss {
+    margin-top: 6rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    h3 {
+      margin-bottom: 1rem;
+      width: 100vw;
+      font-family: $DM;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 55px;
+      line-height: 98px;
+      color: #000000;
+    }
+    #topicCard {
+      margin: 1rem 1rem 3rem 2rem;
+    }
+  }
+
+  #theChurch {
+    display: flex;
+    #theChurchResponse {
+      background: $gold;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      padding: 2rem;
+
+      h2 {
+        color: white;
+        font-weight: normal;
+        font-size: 48px;
+        line-height: auto;
+        margin-bottom: 2rem;
+      }
+      p {
+        color: white;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 26px;
+        line-height: auto;
+      }
+    }
+    #churchTopic {
+      margin-left: 2rem;
+      h3 {
+        width: 550px;
+        font-weight: normal;
+        font-size: 48px;
+        line-height: normal;
+        color: #000000;
+        margin-bottom: 3rem;
+        position: relative;
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 0;
+          border-radius: 20px;
+          height: 0.5rem;
+          width: 2rem;
+          background: $gold;
+        }
+      }
+      ul {
+        li {
+          font-weight: normal;
+          font-size: 22px;
+          line-height: 27px;
+          color: #000000;
+          list-style: url(../../Assets/icons/hyphen.svg);
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+// Tablet
+@media (min-device-width: 800px) and (max-device-width: 1280px) {
+  #P_Sintro {
+    .introTextContent {
+      #quote {
+        line-height: normal;
+      }
+    }
+    .introVideoButton {
+      .hexagon {
+        height: 400px;
+        width: 400px;
+        @include BGConfig(80%, center);
+      }
+    }
+  }
+  #theChurch {
+    flex-direction: column;
+    #churchTopic {
+      margin: 2rem;
+    }
+  }
+  // #topicsSection{
+  //   #whatWeDiscuss{
+  //     #topicCard{
+
+  //     }
+  //   }
+  // }
+}
+
+// Mobile
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 800px) {
+  #P_Sintro {
+    flex-direction: column-reverse;
+    .introTextContent {
+      width: 100%;
+      margin-top: -2rem;
+      .quoteSrc {
+        #quoteSource {
+          font-size: 18px;
+        }
+      }
+      #quote {
+        font-size: 24px;
+        line-height: normal;
+        letter-spacing: 2px;
+        margin: 1rem 0;
+      }
+      #quoteText {
+        width: auto;
+      }
+    }
+    .introVideoButton {
+      width: 100%;
+      .hexagon {
+        height: 300px;
+        width: 300px;
+        @include BGConfig(70%, top);
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+  #PS_goals {
+    .bgLayer {
+      #heartIcon {
+        height: 50px;
+        width: 50px;
+      }
+      h1 {
+        font-size: 36px;
+        line-height: normal;
+        letter-spacing: normal;
+      }
+      ul {
+        li {
+          width: 100%;
+        }
+      }
+    }
+  }
+  #PS_forYou {
+    width: 90%;
+    height: max-content;
+    h1 {
+      font-size: 23px;
+      line-height: normal;
+      letter-spacing: normal;
+
+      &::before {
+        bottom: -10px;
+      }
+    }
+    ul {
+      li {
+        font-size: 18px;
+        line-height: normal;
+        letter-spacing: normal;
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+  #topicsSection {
+    #questionAndImage {
+      flex-direction: column-reverse;
+      #questions {
+        h3 {
+          font-size: 48px;
+          line-height: normal;
+        }
+        ul {
+          li {
+            font-size: 18px;
+          }
+        }
+      }
+      #PS_Image {
+        width: 300px;
+        height: 300px;
+      }
+    }
+    #note {
+      font-size: 18px;
+      line-height: 24px;
+      margin-top: 2rem;
+      // text-align: left;
+    }
+
+    #whatWeDiscuss {
+      h3 {
+        font-size: 48px;
+        line-height: normal;
+      }
+      #topicCard {
+        margin: 1rem 1rem 1rem 0rem;
+        #topicCardContent {
+          height: 100px;
+          font-size: 18px;
+          padding: 0 1rem;
+        }
+      }
+    }
+    #theChurch {
+      flex-direction: column;
+      #theChurchResponse {
+        min-width: 0;
+        height: max-content;
+        h2 {
+          font-size: 48px;
+        }
+        p {
+          font-size: 18px;
+          line-height: 25px;
+        }
+      }
+      #churchTopic {
+        margin-top: 2rem;
+        h3 {
+          width: 100%;
+          font-weight: normal;
+          font-size: 23px;
+          line-height: normal;
+        }
+        ul {
+          li {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}

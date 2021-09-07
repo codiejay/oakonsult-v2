@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;700&family=DM+Serif+Display&display=swap');
+$DM: 'DM Serif Display', serif;
+$Archivo: 'Archivo', sans-serif;
+
+$teal: #009ba7;
+$grey: #a9a6a6;
+$blue: #0aa7ff;
+$purple: #ff0ac9;
+$yellow: #ffba0a;
+
+@mixin BGConfig($size, $position) {
+  background-position: $position;
+  background-size: $size;
+  background-repeat: no-repeat;
+}

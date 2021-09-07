@@ -1,0 +1,58 @@
+@import "../../../constants/scss/colors";
+@import "../../../constants/scss/variables";
+@import "../../../constants/scss/mixins";
+
+.admin-dashboard {
+  .admin-buttons {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    .admin-btn {
+      cursor: pointer;
+      height: 50px !important;
+      padding: 0 1em;
+      // width: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      text-align: center;
+      background-color: $tint;
+      color: $white;
+      box-sizing: border-box;
+      margin: 10px;
+      border: none;
+      box-shadow: $shadow;
+      font-weight: 700 !important;
+      font-size: 1em;
+      img {
+        height: 20px;
+        margin-right: 0.5em;
+      }
+      &:active {
+        box-shadow: 0px 4px 6px #00000000;
+      }
+      span {
+        font-size: 1.2em;
+        margin-left: 1em;
+      }
+    }
+    .published {
+      background-color: #eab88c;
+    }
+    .drafts {
+      background-color: #eab88c;
+    }
+    .trash {
+      background-color: #eab88c;
+    }
+    .admin-info-buttons {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      @include tablet() {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+// $DM: 'DM Serif Display', serif;
+// $Archivo: 'Archivo', sans-serif;
+// $teal: #009ba7;
+// $grey: #a9a6a6;
+// $blue: #0aa7ff;
+// $purple: #ff0ac9;
+// $yellow: #ffba0a;
+// $pink: #ff34ba;
+
+// // Mixins
+// @mixin BGConfig($size, $position) {
+//   background-position: $position;
+//   background-size: $size;
+//   background-repeat: no-repeat;
+// }
+
+// // ==================================================================
+// // Tablet
+// // ==================================================================
+
+// @media (min-device-width: 800px) and (max-device-width: 1280px) {
+//   // Homepage
+
+//   #homePage {
+//     #intro {
+//       margin-bottom: 7rem;
+//       min-height: 0;
+//       .introTextContent {
+//         #quote {
+//           font-size: 48px;
+//           line-height: normal;
+//         }
+//       }
+//       .introVideoButton {
+//         .hexagon {
+//           height: 400px;
+//           width: 400px;
+//           @include BGConfig(80%, center);
+//         }
+//       }
+//     }
+
+//     #whoAreYou {
+//       min-height: 0;
+//       #whoAreYouContent {
+//         .AboutDeets {
+//           h1 {
+//             font-size: 36px;
+//             line-height: normal;
+//           }
+//         }
+//       }
+//     }
+
+//     #aboutFounder {
+//       .aboutContent {
+//         flex-direction: column;
+//         #Q_A {
+//           //   margin: 0 auto;
+//           //   width: 80%;
+//         }
+//         #Founder {
+//           #founderImg {
+//             margin: 0 auto;
+//           }
+//           margin-bottom: 4rem;
+//         }
+//         #aboutFounder {
+//           #watchStory {
+//             margin: 0 auto;
+//           }
+//         }
+//       }
+//     }
+//     #syllabusIntro {
+//       height: 40vh;
+//       #syllabusIntroContent {
+//         #syllabusIntroTitle {
+//           h2 {
+//             font-size: 36px;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

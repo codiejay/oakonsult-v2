@@ -1,0 +1,72 @@
+@import "../../../constants/scss/colors";
+@import "../../../constants/scss/variables";
+@import "../../../constants/scss/mixins";
+
+.inbox {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  .message-list,
+  .message-view {
+    width: 30%;
+    height: calc(100vh - 9em);
+    // border: 0.1em solid $black;
+  }
+  .message-list {
+    padding-right: 2em;
+    .message-preview {
+      display: flex;
+      align-items: center;
+      box-shadow: $shadow;
+      cursor: pointer;
+      padding: 1em;
+      position: relative;
+      margin: 1em 0;
+      .message-preview-icon {
+        height: 2.5em;
+        width: 2.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        box-shadow: $shadow;
+        margin-right: 0.6em;
+      }
+      .message-title {
+        font-size: 1.2em;
+      }
+      .timestamp {
+        font-size: 1em;
+      }
+    }
+    .dot {
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      background-color: $danger;
+      height: 1em;
+      width: 1em;
+      border-radius: 50%;
+    }
+  }
+  .divider {
+    height: calc(100vh - 10em);
+    width: 0.2em;
+    background-color: $tint;
+  }
+  .message-view {
+    padding-left: 2em;
+    flex: 1;
+    display: flex;
+    .not-viewing {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      color: lighten($color: $black, $amount: 40);
+      h3 {
+        margin-left: 0.3em;
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+@import "../../constants/scss/colors";
+@import "../../constants/scss/default";
+@import "../../constants/scss/variables";
+@import "../../constants/scss/mixins";
+@import "../../constants/scss/framework";
+
+.blog-overview {
+  padding: 2em 2%;
+}
+.article-data {
+  display: flex;
+  justify-content: flex-start;
+  .tumbnail {
+    flex: 0 0 calc(100% / 1.7);
+    max-width: calc(100% / 1.7);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    // height: 57.6em;
+  }
+  .article-text-button {
+    flex: 0 0 calc(100% / 3);
+    max-width: calc(100% / 3);
+    position: relative;
+    overflow: hidden;
+
+    .article-text {
+      .main-article-title {
+        font-family: "Archivo", sans-serif !important;
+        font-size: 4em;
+      }
+      .main-article-hook {
+        font-family: "Archivo", sans-serif !important;
+        font-size: 2.2em;
+      }
+    }
+    .cr-btn-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding-top: 11em;
+      margin: 0;
+      background: linear-gradient(#ffffffc7, #fff);
+      .cr-btn {
+        padding: 2em;
+        font-size: 1.5em;
+        color: #ffffff;
+        &:hover {
+          background-color: $white;
+          color: $tint;
+        }
+      }
+    }
+  }
+}
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+}
+.tag-btn {
+  padding: 1em 2em !important;
+  height: 4em !important;
+}

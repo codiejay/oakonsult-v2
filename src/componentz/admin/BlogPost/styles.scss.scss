@@ -1,0 +1,52 @@
+@import "../../../constants/scss/colors";
+@import "../../../constants/scss/variables";
+@import "../../../constants/scss/mixins";
+
+.warning-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  background-color: #00000028;
+  .warning {
+    margin: auto;
+    width: 250px;
+    padding: 20px;
+    background-color: $tint;
+    color: $white;
+    text-align: center;
+    box-shadow: 0px 3px 6px #00000028;
+    .warning-btns {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      padding: 10px 0;
+      .warning-btn {
+        height: 30px;
+        width: 50px;
+        border: 0;
+        cursor: pointer;
+        background-color: #6ab5b9;
+        &:nth-child(2) {
+          background-color: #eab88c;
+        }
+      }
+    }
+  }
+}
+.carosel-post {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  margin-left: auto;
+  .slider-item-check {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #6ab5b9;
+    transition: all 0.3s ease-in-out;
+    margin-left: 10px;
+  }
+}

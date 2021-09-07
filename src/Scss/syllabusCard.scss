@@ -1,0 +1,57 @@
+$teal: #009ba7;
+.CardTitle {
+  // display: none;
+}
+
+#Card {
+  border-radius: 12px;
+  width: 431px;
+  height: 225px;
+  margin-bottom: 2rem;
+
+  .CardTitle {
+    background: $teal;
+    box-shadow: 0px 0px 40px 4px rgba(0, 0, 0, 0.04);
+    border-radius: 12px;
+    width: 215px;
+    height: 61px;
+    padding: 0.5rem 0 0 1rem;
+    color: white;
+    font-size: 19px;
+  }
+
+  .cardContent {
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0px 0px 40px 4px rgba(0, 0, 0, 0.04);
+    margin-top: -1.5rem;
+    .classText {
+      font-weight: normal;
+      font-size: 11px;
+      line-height: 24px;
+      width: 80%;
+    }
+    .accessSyllabus {
+      width: 145px;
+      height: 29px;
+      background: rgba(0, 155, 167, 0.51);
+      text-transform: capitalize;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 13px;
+      text-align: center;
+      padding: 0.5rem;
+      color: white;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: all 0.5s;
+
+      &:hover {
+        background: rgb(255, 255, 255);
+        border: 1px solid rgba(0, 155, 167, 0.51);
+        color: rgb(0, 156, 167);
+      }
+    }
+  }
+}

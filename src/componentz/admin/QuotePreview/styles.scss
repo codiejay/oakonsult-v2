@@ -1,0 +1,55 @@
+@import "../../../constants/scss/colors";
+@import "../../../constants/scss/variables";
+@import "../../../constants/scss/mixins";
+
+.has-data {
+  padding: 2em;
+  .quote-preview {
+    cursor: pointer;
+    color: $white;
+    width: 20%;
+    padding: 1em;
+    border-radius: 0.5em;
+    box-shadow: $shadow;
+    margin-right: 2em;
+    text-align: center;
+    .quote-icon {
+      height: 6em;
+      width: 6em;
+      border-radius: 0.5em;
+      box-shadow: $shadow;
+    }
+  }
+  .absolute-btn {
+    position: absolute;
+    bottom: 2em;
+    right: 2em;
+  }
+}
+.quote {
+  color: $black;
+}
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include tablet() {
+    display: flex;
+    align-items: center;
+  }
+  .ctrl {
+    width: 4em !important;
+    height: 4em !important;
+    box-shadow: $shadow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 5px;
+    padding: 0 !important;
+    img {
+      width: 1.5em;
+      margin: auto;
+    }
+  }
+}

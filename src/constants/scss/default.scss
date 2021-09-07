@@ -1,0 +1,124 @@
+@import "./fonts";
+@import "./colors";
+// TODO "Add Font Families"
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: ArchivoRegular;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+ul,
+span,
+li,
+img {
+  font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  line-height: 1.5;
+}
+p,
+span {
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: ArchivoRegular;
+  font-size: 15px;
+}
+span {
+  font-size: 16px;
+}
+h1 {
+  font-size: 3.1em;
+  letter-spacing: 5px;
+  font-family: DMSerifDisplayRegular;
+}
+h2 {
+  font-size: 2.4em;
+  line-height: 1.1;
+  font-family: DMSerifDisplayRegular;
+}
+h3 {
+  font-size: 1.3em;
+  font-family: DMSerifDisplayRegular;
+}
+h4 {
+  font-size: 1.2em;
+  letter-spacing: 0.6px;
+  font-family: DMSerifDisplayRegular;
+}
+h5 {
+  font-size: 1.1em;
+  font-family: DMSerifDisplayRegular;
+}
+h6 {
+  font-size: 0.9em;
+  letter-spacing: 1px;
+  font-family: DMSerifDisplayRegular;
+}
+
+a,
+button {
+  // font-family: !important;
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s;
+}
+li {
+  list-style: none;
+}
+a {
+  font-size: 1.2em;
+  outline: none;
+}
+
+.success-subscribe {
+  display: block;
+  background-color: #affdaf;
+  color: $success;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-weight: 600;
+  animation: toggleShow 7s linear forwards;
+  z-index: 99;
+
+  span {
+    float: right;
+  }
+}
+
+@keyframes toggleShow {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+
+  25% {
+    display: block;
+    opacity: 1;
+  }
+
+  50% {
+    display: block;
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}

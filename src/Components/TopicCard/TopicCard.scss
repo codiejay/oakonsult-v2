@@ -1,0 +1,22 @@
+$teal: #009ba7;
+#orangeTag {
+  background: $teal;
+  width: 100px;
+  height: 36px;
+}
+#topicCardContent {
+  display: flex;
+  align-items: center;
+  height: 120px;
+  width: max-content;
+  background: #ffffff;
+  box-shadow: 0px 0px 19px rgba(0, 0, 0, 0.144);
+  border-radius: 12px;
+  padding: 0 2rem;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 23px;
+  line-height: 59px;
+  color: #000000;
+  margin-top: -1rem;
+}

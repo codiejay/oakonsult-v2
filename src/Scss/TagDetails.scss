@@ -1,0 +1,28 @@
+$Archivo: 'Archivo', sans-serif;
+$blue: #0aa7ff;
+$purple: #ff0ac9;
+$yellow: #ffba0a;
+
+#tagDetails {
+  display: flex;
+  margin: 2rem 0;
+
+  .tagColor {
+    height: 1.5rem;
+    width: 1rem;
+    margin-right: 1rem;
+  }
+  .tagDeets {
+    h3 {
+      font-family: $Archivo;
+      font-weight: 700;
+      font-size: 21px;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-family: $Archivo;
+      font-size: 16px;
+      line-height: 160.8%;
+    }
+  }
+}

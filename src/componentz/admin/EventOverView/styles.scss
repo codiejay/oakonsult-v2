@@ -1,0 +1,41 @@
+@import "../../../constants/scss/colors";
+@import "../../../constants/scss/variables";
+@import "../../../constants/scss/mixins";
+
+.has-data {
+  padding: 2em;
+  .event-preview {
+    cursor: pointer;
+    color: $black;
+    width: 20%;
+    padding: 1em;
+    border-radius: 0.5em;
+    box-shadow: $shadow;
+    margin-right: 2em;
+    text-align: center;
+  }
+  .absolute-btn {
+    position: absolute;
+    bottom: 2em;
+    right: 2em;
+  }
+}
+
+.event-nav {
+  display: flex;
+  align-items: center;
+  padding: 2em 5% 2em 0;
+  .event-nav-links {
+    display: flex;
+    .event-nav-link {
+      span {
+        cursor: pointer;
+        font-size: 1.3em;
+        padding: 0.5em 1em;
+      }
+    }
+  }
+  .add-event-btn {
+    margin-left: auto;
+  }
+}

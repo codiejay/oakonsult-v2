@@ -1,0 +1,127 @@
+@import "../../../constants/scss/colors";
+@import "../../../constants/scss/variables";
+@import "../../../constants/scss/mixins";
+
+.admin-blog-post,
+.admin-draft-preview {
+  width: 80%;
+  min-height: 10em;
+  box-shadow: $shadow;
+  margin: 0.5em 0;
+  padding: 1.5em;
+  display: flex;
+  @include small-laptop() {
+    width: 100%;
+  }
+  @include tablet() {
+    flex-wrap: wrap;
+  }
+  justify-content: flex-start;
+  .tumbnail {
+    margin-right: 2em;
+    @include smartphone() {
+      margin: 0;
+    }
+    img {
+      // width: 25em;
+      height: 20em;
+      @include smartphone() {
+        width: 100%;
+      }
+    }
+  }
+  .text {
+    text-align: left;
+    margin-right: 1em;
+    display: flex;
+    flex-direction: column;
+    color: $black;
+    .title {
+      font-size: 1.5em;
+      text-transform: uppercase;
+      margin-bottom: 1em;
+    }
+    .hook {
+      font-size: 1em;
+      margin-bottom: 2em;
+    }
+  }
+  .controls {
+    margin-left: auto;
+    @include tablet() {
+      display: flex;
+      align-items: center;
+    }
+    .ctrl {
+      width: 4em !important;
+      height: 4em !important;
+      box-shadow: $shadow;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      margin: 5px;
+      padding: 0 !important;
+      img {
+        width: 1.5em;
+        margin: auto;
+      }
+    }
+  }
+}
+
+.warning-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  background-color: #00000028;
+  .warning {
+    margin: auto;
+    width: 250px;
+    // height: 1em;
+    padding: 2em;
+    background-color: $tint;
+    color: $white;
+    text-align: center;
+    box-shadow: 0px 3px 6px #00000028;
+    .warning-btns {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      padding: 2em 0;
+      .warning-btn {
+        height: 30px;
+        width: 50px;
+        border: 0;
+        cursor: pointer;
+        background-color: $danger;
+        &:nth-child(2) {
+          background-color: $black;
+          color: $white;
+        }
+      }
+    }
+  }
+}
+.carosel-post {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  margin-left: auto;
+  .carosel-post-text {
+    color: $black;
+    font-size: 0.8em;
+    font-weight: 600;
+  }
+  .slider-item-check {
+    cursor: pointer;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.2em solid $tint;
+    transition: all 0.3s ease-in-out;
+    margin-left: 1em;
+  }
+}

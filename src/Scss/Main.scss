@@ -1,0 +1,320 @@
+$DM: 'DM Serif Display', serif;
+$Archivo: 'Archivo', sans-serif;
+$teal: #009ba7;
+$grey: #a9a6a6;
+$blue: #0aa7ff;
+$purple: #ff0ac9;
+$yellow: #ffba0a;
+
+#mainpage {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1450px;
+  // user-select: none;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 2fr 8fr;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+  user-select: none;
+  img {
+    width: 80px;
+    transform: scale(1.5);
+  }
+  div {
+    position: relative;
+    h3 {
+      text-align: right;
+      font-family: $DM;
+      letter-spacing: 0.14rem;
+      font-weight: lighter;
+      font-size: 1.9rem;
+      cursor: pointer;
+    }
+    #menuContent {
+      padding: 2rem 1rem 4rem 1rem;
+      background-color: $teal;
+      width: 350px;
+      position: absolute;
+      right: 0;
+      z-index: 900;
+      animation: menuAnimation 0.4s 1;
+      p {
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        color: white;
+        letter-spacing: 0.1rem;
+        cursor: pointer;
+        font-family: $DM;
+        animation: menuContent 1.5s 1;
+      }
+      ul {
+        margin-top: 2rem;
+        li {
+          margin: 2rem 0;
+          h3 {
+            text-align: left;
+            color: rgb(255, 255, 255);
+            font-size: 1.4rem;
+          }
+          p {
+            font-family: $Archivo;
+            letter-spacing: 0.01rem;
+            line-height: 1.8rem;
+          }
+        }
+      }
+      #social {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-left: -9%;
+        margin-top: 3rem;
+        a {
+          text-align: center;
+          color: rgba(255, 255, 255, 0.514);
+        }
+      }
+    }
+  }
+}
+
+footer {
+  margin: 2rem 0;
+  #programs {
+    background-color: $teal;
+    padding: 3rem 0.6rem;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: 3fr 1.2fr;
+    #programTitle {
+      color: white;
+      span {
+        font-size: 1.2rem;
+      }
+      p {
+        font-size: 1.5rem;
+        font-weight: bolder;
+      }
+    }
+    #programButton {
+      width: fit-content;
+      #programLink {
+        gap: 2rem;
+        background-color: #26aab4;
+        padding: 1rem 1.2rem;
+        border-radius: 300px;
+        align-items: center;
+        display: grid;
+        grid-template-columns: 2fr 8fr;
+        img {
+          width: 50px;
+        }
+        p {
+          font-size: 1.3rem;
+          color: white;
+          font-weight: 900;
+          font-family: $Archivo;
+        }
+      }
+    }
+  }
+  #newsletter {
+    background-color: $teal;
+    margin: 3rem 0;
+    padding: 6rem 1rem;
+    text-align: center;
+    border-radius: 12px;
+
+    #heading {
+      h2 {
+        color: white;
+        font-size: 3.5rem;
+        font-weight: lighter;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+      p {
+        color: white;
+        text-transform: capitalize;
+        width: 60%;
+        margin: 0 auto 1rem auto;
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+    }
+    form {
+      width: 60%;
+      margin: 0 auto;
+      div {
+        display: grid;
+        grid-template-columns: 9fr 1fr;
+        gap: 1rem;
+        input {
+          width: 100%;
+          font-size: 1.6rem;
+          font-family: $DM;
+          border: 0px;
+          padding: 0.8rem 0.8rem;
+          text-transform: uppercase;
+          &:focus {
+            outline-color: $teal;
+          }
+        }
+        #sendButton {
+          cursor: pointer;
+          align-items: center;
+          width: 60px;
+          height: 60px;
+          background-color: #26aab4;
+          img {
+            width: 50%;
+            height: 50%;
+            margin-left: 50%;
+          }
+        }
+      }
+      p {
+        text-align: left;
+        color: white;
+        text-transform: uppercase;
+        font-family: $Archivo;
+        margin-top: 0.8rem;
+      }
+    }
+  }
+
+  #mainFooter {
+    border-radius: 12px;
+    background-color: $teal;
+    padding: 3rem 0;
+    #footerImg {
+      width: 100%;
+      height: 80vh;
+      background: url('../Assets/leaf.svg');
+      background-position: -20% 90%;
+      background-size: center;
+      background-repeat: no-repeat;
+      display: none;
+    }
+    #footerBoxes {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      #footerLogo {
+        margin-left: 1rem;
+        border-radius: 5px 20px 5px;
+        width: 100px;
+        height: 100px;
+        background: url('../Assets/logo.png'), white;
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+      }
+      .footerBox {
+        h3 {
+          color: #fff;
+          font-size: 1.6rem;
+          letter-spacing: 0.06rem;
+          text-transform: uppercase;
+        }
+        a {
+          display: block;
+          margin: 0.6rem 0;
+          color: whitesmoke;
+          font-size: 1.2rem;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+}
+// Tablet
+
+@media only screen and (min-device-width: 800px) and (max-device-width: 1280px) {
+  footer {
+    #programs {
+      grid-template-columns: 2.5fr 1.2fr;
+      #programTitle {
+      }
+      #programButton {
+        #programLink {
+          p {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Mobile
+@media only screen and (min-device-width: 300px) and (max-device-width: 800px) {
+  footer {
+    #programs {
+      display: flex;
+      flex-direction: column;
+      #programTitle {
+      }
+      #programButton {
+        margin-top: 1rem;
+        #programLink {
+          p {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+    #newsletter {
+      #heading {
+        h2 {
+          font-size: 2rem;
+        }
+        p {
+          width: 90%;
+        }
+      }
+      form {
+        width: 90%;
+      }
+    }
+
+    #mainFooter {
+      padding-left: 1rem;
+      #footerImg {
+        height: 40vh;
+        background-size: 100%;
+      }
+      #footerBoxes {
+        display: flex;
+        flex-direction: column;
+        #footerLogo {
+          margin-bottom: 1rem;
+        }
+        .footerBox {
+        }
+      }
+    }
+  }
+}
+
+//animation
+@keyframes menuAnimation {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 350px;
+  }
+}
+
+@keyframes menuContent {
+  0% {
+    color: transparent;
+  }
+  100% {
+    width: initial;
+  }
+}

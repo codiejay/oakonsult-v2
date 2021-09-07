@@ -1,0 +1,13 @@
+@import "../../../constants/scss/colors";
+@import "../../../constants/scss/variables";
+@import "../../../constants/scss/mixins";
+
+.admin-blog-posts,
+.trashes,
+.drafts {
+  height: calc(100vh - 9em);
+  overflow-y: scroll;
+  padding: 30px;
+  margin-top: 10px;
+  color: $black;
+}

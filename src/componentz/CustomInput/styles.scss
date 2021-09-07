@@ -1,0 +1,26 @@
+@import "../../constants/scss/colors";
+@import "../../constants/scss/variables";
+@import "../../constants/scss/mixins";
+// TODO Add Font Family
+.group {
+  display: flex;
+  flex-direction: column;
+  .form-input {
+    background: none;
+    background-color: $white;
+    color: $black;
+    // font-family: ;
+    font-size: 1.2em;
+    border-radius: 0.5em;
+    padding: 0.8em 0 0.8em 0.5em;
+    border: none;
+    outline: none;
+  }
+  .form-input-label {
+    color: $black;
+    font-size: 1.2em;
+    // font-family: ;
+    margin-left: 0.2em;
+    margin-bottom: 0.5em;
+  }
+}
