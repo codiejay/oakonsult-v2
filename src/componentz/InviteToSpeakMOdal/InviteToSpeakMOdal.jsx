@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import './styles.scss';
 
-const InviteToSpeakMOdal = ({ setDialogVisible, title }) => {
+const InviteToSpeakMOdal = ({ setDialogVisible, title, buttonText }) => {
   console.log(title);
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState('');
@@ -93,7 +93,7 @@ const InviteToSpeakMOdal = ({ setDialogVisible, title }) => {
           />
           <Spacing height='2em' />
           <CustomButton
-            label='Invite'
+            label= 'Submit'
             onClick={onSubmit}
             className='add-employee-btn'
           />
