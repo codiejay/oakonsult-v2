@@ -87,11 +87,15 @@ const Programmes = () => {
 
         <div id="AvailiableProgrammes">
           <div className="current" style={pastStyle}>
-            <PastProgrammes />
+            <PastProgrammes 
+              data={event}
+            />
           </div>
 
           <div className="past" style={currentStyle}>
-            <CurrentProgrammes />
+            <CurrentProgrammes 
+              data={event}
+            />
           </div>
         </div>
       </div>
