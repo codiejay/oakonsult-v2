@@ -30,7 +30,7 @@ const Churches = () => {
           }}
         >
           <VideoModal
-            data={['https://www.youtube.com/embed/N5rtt_IDVsA']}
+            data={['https://www.youtube.com/embed/_FHfDaQ6X_4']}
             closeFunc={() => {
               ChangeDisplayModal(false);
             }}

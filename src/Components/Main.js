@@ -198,7 +198,7 @@ const Main = (props) => {
               <a href="/blogs/for-parents/abigail's-story?ace50500afe74156b38ddd889f4eb7e2">
                 - abigail's story
               </a>
-              <a href='/donations'>- make a donation</a>
+              {/* <a href='/donations'>- make a donation</a> */}
             </div>
           </div>
         </div>

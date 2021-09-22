@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./Programmes.scss";
-import ProgrammeCard from "./ProgrammeCard";
 import PastProgrammes from "./PastProgrammes";
 import CurrentProgrammes from "./CurrentProgrammes";
 import { firestore } from "../../firebase/config";
@@ -85,15 +84,14 @@ const Programmes = () => {
               PAST PROGRAMS
             </div>
           </div>
+        </div>
+        <div id="AvailiableProgrammes">
+          <div className="current" style={pastStyle}>
+            <PastProgrammes data={event} />
+          </div>
 
-          <div id="AvailiableProgrammes">
-            <div className="current" style={pastStyle}>
-              <PastProgrammes />
-            </div>
-
-            <div className="past" style={currentStyle}>
-              <CurrentProgrammes />
-            </div>
+          <div className="past" style={currentStyle}>
+            <CurrentProgrammes data={event} />
           </div>
         </div>
       </div>

@@ -1,24 +1,61 @@
-import ProgrammeCard from './ProgrammeCard';
-const CurrentProgrammes = () => {
+import React from "react";
+import ProgrammeCard from "./ProgrammeCard";
+import Dialog from "../../componentz/Dialog/Dialog";
+import EventRegistrationModal from "../../componentz/EventRegistrationModal/EventRegistrationModal";
+import { useEffect, useState } from "react";
+
+const CurrentProgrammes = ({ data }) => {
+  console.log(data);
+  let currentDate = new Date();
+  let dateString = [
+    currentDate.getFullYear(),
+    currentDate.getMonth() + 1,
+    currentDate.getDate(),
+  ];
+  const [showNoEventAlert, setShowNoEventAlert] = React.useState(true);
+  const [dialogVisible, setDialogVisible] = useState(false);
+  const [activeEvent, setActiveEvent] = useState("");
+  useEffect(() => {}, [activeEvent]);
   return (
-    <div id='currentProgrammes' style={{ display: 'flex' }}>
-      <ProgrammeCard
-        data={{
-          date: '20th July 2026',
-          title: 'You are closer then you think- keep going',
-          content:
-            'Only the gospel of Jesus can make a lasting, significant, and eternal difference in the lives of people with disabilities; just like it is for every living being on the surface of the',
-        }}
-      />
-      <ProgrammeCard
-        data={{
-          date: '11th April 2077',
-          title: 'If you believe then you will- grow',
-          content:
-            'Only the gospel of Jesus can make a lasting, significant, and eternal difference in the lives of people with disabilities; just like it is for every living being on the surface of the lorem ipsum',
-        }}
-      />
-    </div>
+    <>
+      <div id="currentProgrammes" style={{ display: "flex" }}>
+        {data.map((event, index) => {
+          let eventStringDate = event.date.split("-");
+          eventStringDate[1] = parseInt(eventStringDate[1]);
+          eventStringDate = eventStringDate.join("");
+          console.log(event);
+          if (parseInt(dateString.join("")) < eventStringDate) {
+            return (
+              <ProgrammeCard
+                index={index}
+                data={{
+                  date: event.date,
+                  title: event.name,
+                  content: event.description,
+                }}
+                setDialogVisible={setDialogVisible}
+                setActiveEvent={setActiveEvent}
+              />
+            );
+          }
+        })}
+        <h2
+          style={{
+            marginTop: "2rem",
+            fontSize: "2.3rem",
+            display: showNoEventAlert ? "none" : "block",
+          }}
+        >
+          No upcoming events, please check back
+        </h2>
+      </div>{" "}
+      <Dialog dialogVisible={dialogVisible} setDialogVisible={setDialogVisible}>
+        <EventRegistrationModal
+          setDialogVisible={setDialogVisible}
+          title={activeEvent}
+        />
+      </Dialog>
+    </>
   );
 };
 
