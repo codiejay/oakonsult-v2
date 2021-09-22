@@ -53,49 +53,51 @@ const Programmes = () => {
   }
 
   return (
-    <div id="Programmes">
-      <div id="ProgrammesIntro">
-        <h2 id="Title">
-          OUR
-          <br /> PROGRAMMES
-        </h2>
-        <div id="calenderImage"></div>
-      </div>
-      <div id="programmesSection">
-        <div id="selectionNavBar">
-          <div
-            id="current"
-            className="programSelection"
-            onClick={() => {
-              ChangeProgrammeSort("Current");
-            }}
-            style={{ background: colorSwitch.currentColor }}
-          >
-            CURRENT PROGRAMS
-          </div>
-          <div
-            id="past"
-            className="programSelection"
-            onClick={() => {
-              ChangeProgrammeSort("Past");
-            }}
-            style={{ background: colorSwitch.pastColor }}
-          >
-            PAST PROGRAMS
-          </div>
+    <>
+      <div id="Programmes">
+        <div id="ProgrammesIntro">
+          <h2 id="Title">
+            OUR
+            <br /> PROGRAMMES
+          </h2>
+          <div id="calenderImage"></div>
         </div>
-
-        <div id="AvailiableProgrammes">
-          <div className="current" style={pastStyle}>
-            <PastProgrammes />
+        <div id="programmesSection">
+          <div id="selectionNavBar">
+            <div
+              id="current"
+              className="programSelection"
+              onClick={() => {
+                ChangeProgrammeSort("Current");
+              }}
+              style={{ background: colorSwitch.currentColor }}
+            >
+              CURRENT PROGRAMS
+            </div>
+            <div
+              id="past"
+              className="programSelection"
+              onClick={() => {
+                ChangeProgrammeSort("Past");
+              }}
+              style={{ background: colorSwitch.pastColor }}
+            >
+              PAST PROGRAMS
+            </div>
           </div>
 
-          <div className="past" style={currentStyle}>
-            <CurrentProgrammes />
+          <div id="AvailiableProgrammes">
+            <div className="current" style={pastStyle}>
+              <PastProgrammes />
+            </div>
+
+            <div className="past" style={currentStyle}>
+              <CurrentProgrammes />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

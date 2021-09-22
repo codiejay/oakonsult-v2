@@ -16,6 +16,7 @@ const EditEvent = ({ data, setDialogVisible }) => {
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState(data.name);
   const [description, setDescription] = useState(data.description);
+  const [url, setUrl] = useState(data.url || "");
   const [date, setDate] = useState(data.date);
   const [errorMessage, setErrorMessage] = useState("");
   const CleanUp = () => {
@@ -32,6 +33,7 @@ const EditEvent = ({ data, setDialogVisible }) => {
       date,
       timestring,
       imageUrl: "",
+      url,
     };
     if (name.trim() === "" || description.trim() === "") {
       setLoading(false);
@@ -83,6 +85,12 @@ const EditEvent = ({ data, setDialogVisible }) => {
             type={"text"}
             onChange={({ target }) => setDescription(target.value)}
             required
+          />
+          <CustomInput
+            label="Event Url"
+            value={url}
+            type={"text"}
+            onChange={({ target }) => setUrl(target.value)}
           />
           <CustomInput
             label="Event Date"

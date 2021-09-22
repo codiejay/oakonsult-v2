@@ -44,6 +44,12 @@ export const onGetCourse = (courseId, data) => {
 export const onInviteToSpeak = (data) => {
   sendNotification({ ...data, title: `${data.name} Invited you to speak!!!` });
 };
+export const onRegiterForEvent = (data) => {
+  sendNotification({
+    ...data,
+    title: `${data.first_name} want to register for ${data.eventName}`,
+  });
+};
 
 export const OnToggleArticleOfTheWeek = async (postId, state) => {
   const batch = firestore.batch();

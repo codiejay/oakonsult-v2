@@ -55,13 +55,16 @@ const Inbox = () => {
                 >
                   <div className="message-preview-icon">
                     <span className="message-preview-icon-text">
-                      {name
-                        .split(/\s/)
-                        .reduce(
-                          (response, word) => (response += word.slice(0, 1)),
-                          ""
-                        )
-                        .toUpperCase()}
+                      {item.name
+                        ? name
+                            .split(/\s/)
+                            .reduce(
+                              (response, word) =>
+                                (response += word.slice(0, 1)),
+                              ""
+                            )
+                            .toUpperCase()
+                        : item.first_name}
                     </span>
                   </div>
                   <div className="message-preview-info">
