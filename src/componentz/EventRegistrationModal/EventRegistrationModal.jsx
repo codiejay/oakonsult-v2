@@ -15,6 +15,7 @@ const EventRegistrationModal = ({ setDialogVisible, title }) => {
   const [loading, setLoading] = useState(false);
   const [first_name, setFirstName] = useState("");
   const [last_name, setLastName] = useState("");
+  const [email, setEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const onSubmit = async (e) => {
     const id = uuidv4().split("-").join("");
@@ -24,10 +25,15 @@ const EventRegistrationModal = ({ setDialogVisible, title }) => {
       id,
       first_name,
       last_name,
+      email,
       type: "Register",
       eventName: title,
     };
-    if (first_name.trim() === "" || last_name.trim() === "") {
+    if (
+      first_name.trim() === "" ||
+      last_name.trim() === "" ||
+      email.trim() === ""
+    ) {
       setLoading(false);
       setErrorMessage(`All fields are required!`);
       return;
@@ -78,6 +84,14 @@ const EventRegistrationModal = ({ setDialogVisible, title }) => {
             value={last_name}
             type={"text"}
             onChange={({ target }) => setLastName(target.value)}
+            required
+          />
+          <Spacing height="2em" />
+          <CustomInput
+            label="Email"
+            value={email}
+            type={"text"}
+            onChange={({ target }) => setEmail(target.value)}
             required
           />
           <Spacing height="2em" />
