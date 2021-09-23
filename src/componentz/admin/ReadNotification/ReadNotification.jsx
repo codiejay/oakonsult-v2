@@ -21,8 +21,8 @@ const ReadNotification = ({ data }) => {
         {data.name} is interested in joining {data.course}
       </p>
       <br />
-      <h6>Email: {data.email}</h6>
-      <h6>Phone: {data.phone}</h6>
+      {data.email && <h6>Email: {data.email}</h6>}
+      {data.phone && <h6>Phone: {data.phone}</h6>}
     </div>
   );
 };
