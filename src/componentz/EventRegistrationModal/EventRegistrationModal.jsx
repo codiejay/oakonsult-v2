@@ -96,7 +96,7 @@ const EventRegistrationModal = ({ setDialogVisible, title }) => {
           />
           <Spacing height="2em" />
           <CustomButton
-            label="Invite"
+            label="Register Now"
             onClick={onSubmit}
             className="add-employee-btn"
           />
