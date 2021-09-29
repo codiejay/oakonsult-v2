@@ -86,13 +86,13 @@ const Main = (props) => {
               </ul>
 
               <div id='social'>
-                <a target='_blank' href='https://twitter.com'>
+                <a target='_blank' href='https://twitter.com/oakonsult?lang=en'>
                   TWITTER
                 </a>
-                <a target='_blank' href='https://instagram.com'>
+                <a target='_blank' href='https://www.instagram.com/oakonsult/?hl=en'>
                   INSTAGRAM
                 </a>
-                <a target='_blank' href='https://youtube.com'>
+                <a target='_blank' href='https://www.youtube.com/channel/UChT6azxnwdbpt5fncV1q7EQ'>
                   YOUTUBE
                 </a>
               </div>
@@ -176,7 +176,7 @@ const Main = (props) => {
 
             <div className='footerBox'>
               <h3>contact</h3>
-              <a href='mailto:OLUFUNKE.ADELOYE@OAKONSULT.COM '>
+              <a href='https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=OLUFUNKE.ADELOYE@OAKONSULT.COM'>
                 - Send us an email
               </a>
               <a href='tel:+447368934865'>- Give us a call</a>

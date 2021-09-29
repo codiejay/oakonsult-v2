@@ -1,4 +1,5 @@
 const ProgrammeCard = (props) => {
+  console.log(props);
   const { setDialogVisible, setActiveEvent } = props;
   return (
     <div id="ProgrammeCard">
@@ -13,7 +14,9 @@ const ProgrammeCard = (props) => {
             setDialogVisible(true);
           }}
         >
-          REGISTER NOW
+          { 
+            props.type === 'past' ? 'Watch Program' : 'Register Now'
+          }
         </div>
       </div>
     </div>
