@@ -24,6 +24,7 @@ const PastProgrammes = ({ data }) => {
           if (parseInt(dateString.join("")) > eventStringDate) {
             return (
               <ProgrammeCard
+                type='past'
                 index={index}
                 data={{
                   date: event.date,
