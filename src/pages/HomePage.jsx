@@ -123,7 +123,7 @@ const Homepage = () => {
                     {
                       tagName: 'Our Vision',
                       tagContent:
-                        'OAKONSULT DISABILITIES OUTREACH (OAKONSULT) is a mission focused on introducing people with special needs children (parents/carers) to the possibility of having a purposeful and fulfilled lifestyle despite life demands associated with the caring role. We are working towards collaborating with more churches and  organizations to create awareness and build inclusive culture in relation to people with disabilities and their families.',
+                        'OAKONSULT DISABILITIES OUTREACH (OAKONSULT) is a mission focused on introducing people with special needs children (parents/carers) to the possibility of having a purposeful and fulfilled lifestyle despite life demands associated with the caring role. We collaborate with churches and Organizations to create awareness and build inclusive culture in relation to people with disabilities and their families.',
                     },
                   ]}
                 />

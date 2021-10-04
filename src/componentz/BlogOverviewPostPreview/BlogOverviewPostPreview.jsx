@@ -1,7 +1,5 @@
-import moment from 'moment';
 import React from 'react';
 import { useHistory } from 'react-router';
-import renderHTML from 'react-render-html';
 import CustomButton from '../CustomButton/CustomButton';
 import Spacing from '../Spacing/Spacing';
 import placeholder from '../../assetz/images/placeholder.png';
@@ -11,8 +9,9 @@ import { colors } from '../../constants/Colors';
 import { Link } from 'react-router-dom';
 
 const BlogOverviewPostPreview = ({
-  data: { id, title, hook, created_at, main_tag, thumbnail, tumbnail },
+  data: { id, title, hook, posted_at, main_tag, thumbnail, tumbnail },
 }) => {
+  console.log(tumbnail);
   const history = useHistory();
   const OnTagClick = () => {
     history.push(
@@ -32,17 +31,8 @@ const BlogOverviewPostPreview = ({
           className={`flex-center-column tumbnail`}
           style={{
             backgroundImage:
-              main_tag === 'for-parents'
-                ? `linear-gradient(#cac492b4, #cac4923f), url(${
-                    tumbnail || thumbnail || placeholder
-                  })`
-                : main_tag === 'for-siblings'
-                ? `linear-gradient(#cac492b4, #cac4923f), url(${
-                    tumbnail || thumbnail || placeholder
-                  })`
-                : `linear-gradient(#cac492b4, #cac4923f), url(${
-                    tumbnail || thumbnail || placeholder
-                  })`,
+            thumbnail.split(".")[0] === 'https://i9' ? `url(${placeholder})` : 
+            `url(${thumbnail})`,
           }}
         >
           <CustomButton
@@ -98,12 +88,11 @@ const BlogOverviewPostPreview = ({
                     : colors.for_carers,
               }}
             >
-              {moment().fromNow(created_at)}
+              {new Date(posted_at).toDateString()}
             </span>
           </div>
         </div>
         <Spacing height={`1em`} />
-        <p className={`hook`}>{renderHTML(`${hook}`)}</p>
       </div>
     </div>
   );
