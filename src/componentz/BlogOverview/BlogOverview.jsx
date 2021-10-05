@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory, useLocation } from 'react-router';
-import { All_Blogs, Main_Article } from '../../constants/Data';
-import renderHTML from 'react-render-html';
-import { firestore } from '../../firebase/config';
-import BlogFilterer from '../BlogFilterer/BlogFilterer';
-import BlogOverviewPostPreview from '../BlogOverviewPostPreview/BlogOverviewPostPreview';
-import CustomButton from '../CustomButton/CustomButton';
-import Spacing from '../Spacing/Spacing';
-import placeholder from '../../assetz/images/placeholder.png';
+import React, { useEffect, useState } from "react";
+import { useHistory, useLocation } from "react-router";
+import { Main_Article } from "../../constants/Data";
+import renderHTML from "react-render-html";
+import { firestore } from "../../firebase/config";
+import BlogFilterer from "../BlogFilterer/BlogFilterer";
+import BlogOverviewPostPreview from "../BlogOverviewPostPreview/BlogOverviewPostPreview";
+import CustomButton from "../CustomButton/CustomButton";
+import Spacing from "../Spacing/Spacing";
+import placeholder from "../../assetz/images/placeholder.png";
 
-import './styles.scss';
-import { Link } from 'react-router-dom';
+import "./styles.scss";
+import { Link } from "react-router-dom";
 
 const BlogOverview = () => {
   const location = useLocation().pathname;
@@ -22,10 +22,10 @@ const BlogOverview = () => {
   const [posts, setPosts] = useState([]);
   const [noPost, setNoPost] = useState(false);
   const [onEndReachedCalled, setOnEndReachedCalled] = useState(false);
-  const [blogsRef] = useState(firestore.collection('blogs'));
+  const [blogsRef] = useState(firestore.collection("blogs"));
 
   const onLoadArticleOfTheWeek = () => {
-    const slug = blogsRef.where('articleOfTheWeek', '==', true);
+    const slug = blogsRef.where("articleOfTheWeek", "==", true);
     slug.onSnapshot((snapShot) => {
       if (!snapShot.empty) {
         const data = snapShot.docs[0].data();
@@ -35,7 +35,7 @@ const BlogOverview = () => {
   };
   const onLoadTagPosts = () => {
     setIsLoading(true);
-    const slug = blogsRef.orderBy('posted_at', 'desc').limit(10);
+    const slug = blogsRef.orderBy("posted_at", "desc").limit(10);
     slug.onSnapshot((snapshot) => {
       if (snapshot.empty) {
         setNoPost(true);
@@ -56,7 +56,7 @@ const BlogOverview = () => {
       setOnEndReachedCalled(false);
       setIsMoreLoading(true);
       const slug = await blogsRef
-        .orderBy('created_at')
+        .orderBy("created_at")
         .startAfter(lastDoc.data().created_at)
         .limit(10);
       slug.onSnapshot((snapShot) => {
@@ -81,15 +81,15 @@ const BlogOverview = () => {
   useEffect(() => {
     onLoadTagPosts();
     onLoadArticleOfTheWeek();
-  }, ['']);
+  }, [""]);
   return (
-    <div className='blog-overview'>
-      <div className='main-article'>
-        <CustomButton label={`ARTICLE OF THE WEEK`} className={'tag-btn'} />
+    <div className="blog-overview">
+      <div className="main-article">
+        <CustomButton label={`ARTICLE OF THE WEEK`} className={"tag-btn"} />
         <Spacing height={`2em`} />
-        <div className='article-data'>
+        <div className="article-data">
           <div
-            className='tumbnail'
+            className="tumbnail"
             style={{
               backgroundImage: `linear-gradient(#cac492b4, #cac4923f), url(${
                 articleOfTheWeek.tumbnail || articleOfTheWeek.thumbnail
@@ -97,10 +97,10 @@ const BlogOverview = () => {
             }}
           ></div>
           <Spacing width={`2em`} />
-          <div className='article-text-button'>
-            <div className='article-text'>
-              <h1 className='main-article-title'>{articleOfTheWeek.title}</h1>
-              <p className='main-article-hook'>
+          <div className="article-text-button">
+            <div className="article-text">
+              <h1 className="main-article-title">{articleOfTheWeek.title}</h1>
+              <p className="main-article-hook">
                 {renderHTML(`${articleOfTheWeek.hook}`)}
               </p>
             </div>
@@ -109,12 +109,12 @@ const BlogOverview = () => {
             <Link
               to={{
                 pathname: `${
-                  Main_Article.main_tag === 'parents'
-                    ? '/blogs/for-parents'
-                    : Main_Article.main_tag === 'siblings'
-                    ? '/blogs/for-siblings'
-                    : '/blogs/for-carers'
-                }/${Main_Article.title.split(' ').join('-').toLowerCase()}`,
+                  Main_Article.main_tag === "parents"
+                    ? "/blogs/for-parents"
+                    : Main_Article.main_tag === "siblings"
+                    ? "/blogs/for-siblings"
+                    : "/blogs/for-carers"
+                }/${Main_Article.title.split(" ").join("-").toLowerCase()}`,
                 search: articleOfTheWeek.id,
               }}
             >
@@ -127,7 +127,7 @@ const BlogOverview = () => {
       <Spacing height={`6em`} />
       <BlogFilterer />
       <Spacing height={`6em`} />
-      <div className='posts'>
+      <div className="posts">
         {posts.map((item, index) => (
           <BlogOverviewPostPreview key={index} data={item} />
         ))}
