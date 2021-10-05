@@ -30,6 +30,7 @@ const PastProgrammes = ({ data }) => {
                   date: event.date,
                   title: event.name,
                   content: event.description,
+                  url: event.url
                 }}
                 setDialogVisible={setDialogVisible}
                 setActiveEvent={setActiveEvent}

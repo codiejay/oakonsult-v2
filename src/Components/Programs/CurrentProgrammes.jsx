@@ -5,7 +5,6 @@ import EventRegistrationModal from "../../componentz/EventRegistrationModal/Even
 import { useEffect, useState } from "react";
 
 const CurrentProgrammes = ({ data }) => {
-  console.log(data);
   let currentDate = new Date();
   let dateString = [
     currentDate.getFullYear(),
@@ -23,7 +22,6 @@ const CurrentProgrammes = ({ data }) => {
           let eventStringDate = event.date.split("-");
           eventStringDate[1] = parseInt(eventStringDate[1]);
           eventStringDate = eventStringDate.join("");
-          console.log(event);
           if (parseInt(dateString.join("")) < eventStringDate) {
             return (
               <ProgrammeCard
@@ -32,6 +30,7 @@ const CurrentProgrammes = ({ data }) => {
                   date: event.date,
                   title: event.name,
                   content: event.description,
+                  url: event.url
                 }}
                 setDialogVisible={setDialogVisible}
                 setActiveEvent={setActiveEvent}

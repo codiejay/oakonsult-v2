@@ -1,5 +1,5 @@
 const ProgrammeCard = (props) => {
-  console.log(props);
+  console.log(props.data.url);
   const { setDialogVisible, setActiveEvent } = props;
   return (
     <div id="ProgrammeCard">
@@ -7,20 +7,24 @@ const ProgrammeCard = (props) => {
       <div id="card">
         <h2>{props.data.title}</h2>
         <p>{props.data.content}</p>
-        <div
+        <a
+          target="_blank"
+          href={props.type === 'past' ?  `${props.data.url}` : false}
           id="Register"
           onClick={() => {
-            setActiveEvent(props.data.title);
-            setDialogVisible(true);
+            props.type !== 'past' && setActiveEvent(props.data.title);
+            props.type !== 'past' && setDialogVisible(true);
           }}
         >
           { 
             props.type === 'past' ? 'Watch Program' : 'Register Now'
           }
-        </div>
+        </a>
       </div>
     </div>
   );
 };
+
+
 
 export default ProgrammeCard;

@@ -1,7 +1,6 @@
 import moment from "moment";
 import React from "react";
 import { useHistory } from "react-router";
-import renderHTML from "react-render-html";
 import CustomButton from "../CustomButton/CustomButton";
 import Spacing from "../Spacing/Spacing";
 import placeholder from "../../assetz/images/placeholder.png";
@@ -13,6 +12,7 @@ import { Link } from "react-router-dom";
 const BlogOverviewPostPreview = ({
   data: { id, title, hook, posted_at, main_tag, thumbnail, tumbnail },
 }) => {
+  console.log(tumbnail);
   const history = useHistory();
   const OnTagClick = () => {
     history.push(
@@ -98,13 +98,11 @@ const BlogOverviewPostPreview = ({
                     : colors.for_carers,
               }}
             >
-              {/* {moment(posted_at).fromNow()} */}
               {new Date(posted_at).toDateString()}
             </span>
           </div>
         </div>
         <Spacing height={`1em`} />
-        <p className={`hook`}>{renderHTML(`${hook}`)}</p>
       </div>
     </div>
   );
