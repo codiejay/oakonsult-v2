@@ -1,29 +1,30 @@
-import React, { Component, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import '../Scss/homepage.scss';
-import '../Scss/mediaQuery.scss';
+import React, { Component, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import "../Scss/homepage.scss";
+import "../Scss/mediaQuery.scss";
 
 // Images
-import LibraryImg from '../Assets/Library.svg';
-import HeartImg from '../Assets/heart.svg';
-import Star from '../Assets/star.svg';
-import ChatIcon from '../Assets/ChatIcon.svg';
-import PlayIcon from '../Assets/playbutton.svg';
-import StackIcon from '../Assets/stackIcon.svg';
-import syllabusIcon from '../Assets/syllabusIcon.svg';
-import QuestionMark from '../Assets/icons/QuestionMark.svg';
+import LibraryImg from "../Assets/Library.svg";
+import HeartImg from "../Assets/heart.svg";
+import Star from "../Assets/star.svg";
+import ChatIcon from "../Assets/ChatIcon.svg";
+import PlayIcon from "../Assets/playbutton.svg";
+import StackIcon from "../Assets/stackIcon.svg";
+import syllabusIcon from "../Assets/syllabusIcon.svg";
+import QuestionMark from "../Assets/icons/QuestionMark.svg";
 
 // External components
-import ExploreBtn from '../Components/ExploreBtn';
-import SectionIcon from '../Components/SectionIcon';
-import UserTag from '../Components/UserTag';
-import TagDetail from '../Components/TagDetails';
-import WatchStory from '../Components/WatchStory';
-import SyllabusCard from '../Components/SyllabusCard';
-import Dialog from '../componentz/Dialog/Dialog';
-import InviteToSpeakMOdal from '../componentz/InviteToSpeakMOdal/InviteToSpeakMOdal';
-import VideoModal from '../Components/VideoModal/VideoModal';
-import About from '../Components/About/About';
+import ExploreBtn from "../Components/ExploreBtn";
+import SectionIcon from "../Components/SectionIcon";
+import UserTag from "../Components/UserTag";
+import TagDetail from "../Components/TagDetails";
+import WatchStory from "../Components/WatchStory";
+import SyllabusCard from "../Components/SyllabusCard";
+import Dialog from "../componentz/Dialog/Dialog";
+import InviteToSpeakMOdal from "../componentz/InviteToSpeakMOdal/InviteToSpeakMOdal";
+import VideoModal from "../Components/VideoModal/VideoModal";
+import About from "../Components/About/About";
 
 // Internal Component
 
@@ -31,69 +32,80 @@ const Homepage = () => {
   const [dialogVisible, setDialogVisible] = useState(false);
   const [DisplayModal, ChangeDisplayModal] = useState(false);
   const [W_SdisplayModal, ChangeW_SdisplayModal] = useState(false);
-  const [showStoryModal, setShowStoryModal] = useState('none');
+  const [showStoryModal, setShowStoryModal] = useState("none");
 
   let showVideoPlayer;
   DisplayModal
-    ? (showVideoPlayer = { display: 'flex' })
-    : (showVideoPlayer = { display: 'none' });
+    ? (showVideoPlayer = { display: "flex" })
+    : (showVideoPlayer = { display: "none" });
 
   let showStoryPlayer;
   // useEffect(() => {
   W_SdisplayModal
-    ? (showStoryPlayer = { display: 'flex' })
-    : (showStoryPlayer = { display: 'none' });
+    ? (showStoryPlayer = { display: "flex" })
+    : (showStoryPlayer = { display: "none" });
   // }, [W_SdisplayModal]);
 
   return (
     <>
-      <section id='homePage'>
+      <Helmet>
+        <title>Oak</title>
+        <meta property="og:title" content="Oakonsult" />
+        <meta property="og:type" content="website" />
+        <meta
+          name="description"
+          content="OAKONSULT DISABILITIES OUTREACH- Bringing the life of Christ into the Disability Community"
+        />
+        <meta property="og:site_name" content="Oakonsult" />
+        <meta property="og:url" content="https://www.oakonsult.com" />
+      </Helmet>
+      <section id="homePage">
         {/* Intro Video Player */}
-        <div id='VideoModal' style={showVideoPlayer}>
+        <div id="VideoModal" style={showVideoPlayer}>
           <VideoModal
-            data={['https://www.youtube.com/embed/IpQeVtuDeIA']}
+            data={["https://www.youtube.com/embed/IpQeVtuDeIA"]}
             closeFunc={() => {
               ChangeDisplayModal(false);
             }}
           />
         </div>
         {/* Watch My Story Video Player */}
-        <div id='VideoModal' style={{ display: showStoryModal }}>
+        <div id="VideoModal" style={{ display: showStoryModal }}>
           <VideoModal
-            data={['https://www.youtube.com/embed/-ypL6F7Mj0A']}
+            data={["https://www.youtube.com/embed/-ypL6F7Mj0A"]}
             closeFunc={() => {
-              setShowStoryModal('none');
+              setShowStoryModal("none");
             }}
           />
         </div>
 
         {/* Section 1 */}
 
-        <div id='intro'>
-          <div className='introTextContent'>
-            <div className='quoteSrc'>
-              <div className='quote_dash'></div>
-              <p id='quoteSource'>John 10:10</p>
+        <div id="intro">
+          <div className="introTextContent">
+            <div className="quoteSrc">
+              <div className="quote_dash"></div>
+              <p id="quoteSource">John 10:10</p>
             </div>
-            <h1 id='quote'>
+            <h1 id="quote">
               that you may have
               <br /> life, and that more
               <br /> abundantly
             </h1>
-            <div className='homepageCallToAction'>
-              <Link to='/blogs'>
-                <ExploreBtn data={['Explore our library', LibraryImg]} />
+            <div className="homepageCallToAction">
+              <Link to="/blogs">
+                <ExploreBtn data={["Explore our library", LibraryImg]} />
               </Link>
-              <Link to='/about' id='about'>
-                <ExploreBtn data={['About OAK']} />
+              <Link to="/about" id="about">
+                <ExploreBtn data={["About OAK"]} />
               </Link>
             </div>
           </div>
 
-          <div className='introVideoButton'>
-            <div className='hexagon'>
+          <div className="introVideoButton">
+            <div className="hexagon">
               <div
-                id='play_btn'
+                id="play_btn"
                 onClick={() => {
                   ChangeDisplayModal(true);
                 }}
@@ -104,53 +116,53 @@ const Homepage = () => {
 
         {/* Section 2 */}
 
-        <div id='whoAreYou'>
+        <div id="whoAreYou">
           <SectionIcon image={HeartImg} />
-          <div id='whoAreYouContent'>
-            <section className='AboutDeets'>
-              <div className='missionVision'>
+          <div id="whoAreYouContent">
+            <section className="AboutDeets">
+              <div className="missionVision">
                 <TagDetail
                   data={[
                     {
-                      tagName: 'Our Mission',
+                      tagName: "Our Mission",
                       tagContent:
-                        'OAKONSULT’s mandate is to introduce the gospel of Christ to Carers. We empower Carers and families dealing with disability matters with biblical principles and truths that will enable them find fulfilment at whatever stage they might be in their individual journeys.',
+                        "OAKONSULT’s mandate is to introduce the gospel of Christ to Carers. We empower Carers and families dealing with disability matters with biblical principles and truths that will enable them find fulfilment at whatever stage they might be in their individual journeys.",
                     },
                   ]}
                 />
                 <TagDetail
                   data={[
                     {
-                      tagName: 'Our Vision',
+                      tagName: "Our Vision",
                       tagContent:
-                        'OAKONSULT DISABILITIES OUTREACH (OAKONSULT) is a mission focused on introducing people with special needs children (parents/carers) to the possibility of having a purposeful and fulfilled lifestyle despite life demands associated with the caring role. We collaborate with churches and Organizations to create awareness and build inclusive culture in relation to people with disabilities and their families.',
+                        "OAKONSULT DISABILITIES OUTREACH (OAKONSULT) is a mission focused on introducing people with special needs children (parents/carers) to the possibility of having a purposeful and fulfilled lifestyle despite life demands associated with the caring role. We collaborate with churches and Organizations to create awareness and build inclusive culture in relation to people with disabilities and their families.",
                     },
                   ]}
                 />
               </div>
 
-              <div className='tagGroup'>
-                <Link to='/about'>
-                  <ExploreBtn data={['Learn more about OAK']} />
+              <div className="tagGroup">
+                <Link to="/about">
+                  <ExploreBtn data={["Learn more about OAK"]} />
                 </Link>
               </div>
             </section>
-            <section className='userCategories'>
+            <section className="userCategories">
               <TagDetail
                 data={[
                   {
-                    tagName: 'FOR PARENT CARERS',
+                    tagName: "FOR PARENT CARERS",
                     tagContent:
-                      'Providing care for children or family members with disabilities, complex or life limiting conditions impact Carers in different ways.',
+                      "Providing care for children or family members with disabilities, complex or life limiting conditions impact Carers in different ways.",
                   },
                 ]}
               />
               <TagDetail
                 data={[
                   {
-                    tagName: 'FOR CHURCHES',
+                    tagName: "FOR CHURCHES",
                     tagContent:
-                      'Only the gospel of Jesus can make a lasting, significant, and eternal difference in the lives of people with disabilities.',
+                      "Only the gospel of Jesus can make a lasting, significant, and eternal difference in the lives of people with disabilities.",
                   },
                 ]}
               />
@@ -159,79 +171,79 @@ const Homepage = () => {
         </div>
 
         {/* Section 3 */}
-        <div id='RssCategories'>
-          <h2 id='sectionTitle'>OUR OFFERINGS</h2>
-          <p id='sectionDetails'>
+        <div id="RssCategories">
+          <h2 id="sectionTitle">OUR OFFERINGS</h2>
+          <p id="sectionDetails">
             OAK’s mandate is to introduce the gospel of Christ to Carers. We
             empower Carers and families dealing with disability matters with
             biblical principles and truth that will enable them find fulfilment
             at whatever stage they might be in their individual journeys.
           </p>
 
-          <div className='cards_mother'>
-            <div className='rssCard parents'>
-              <h2 className='cardTitle'>FOR PARENT CARERS</h2>
-              <p className='cardContent'>
+          <div className="cards_mother">
+            <div className="rssCard parents">
+              <h2 className="cardTitle">FOR PARENT CARERS</h2>
+              <p className="cardContent">
                 Providing care for children or family members with disabilities,
                 complex or life limiting conditions impact Carers in different
                 ways. This could be physical, emotional, social, financial, or
                 spiritual just to mention a few; and in many instances, a
                 combination of all these factors.
               </p>
-              <Link to='./carers'>
-                <div id='learnMore_btn'>
+              <Link to="./carers">
+                <div id="learnMore_btn">
                   <p>Learn More</p>
-                  <div className='learnMore_icon'></div>
+                  <div className="learnMore_icon"></div>
                 </div>
               </Link>
             </div>
 
-            <div className='rssCard churches'>
-              <h2 className='cardTitle'>
+            <div className="rssCard churches">
+              <h2 className="cardTitle">
                 FOR CHURCHES AND
                 <br /> FAITH-BASED ORGANISATIONS
               </h2>
-              <p className='cardContent'>
+              <p className="cardContent">
                 Only the gospel of Jesus can make a lasting, significant, and
                 eternal difference in the lives of people with disabilities;
                 just like it is for every living being on the surface of the
                 earth! The needs of families dealing with disabilities go beyond
                 charitable offers, as helpful as these are.
               </p>
-              <Link to='./churches'>
-                <div id='learnMore_btn'>
+              <Link to="./churches">
+                <div id="learnMore_btn">
                   <p>Learn More</p>
-                  <div className='learnMore_icon'></div>
+                  <div className="learnMore_icon"></div>
                 </div>
               </Link>
             </div>
 
-            <div className='rssCard training'>
-              <h2 className='cardTitle'>TRAINING AND RESOURCES</h2>
-              <p className='cardContent'>
+            <div className="rssCard training">
+              <h2 className="cardTitle">TRAINING AND RESOURCES</h2>
+              <p className="cardContent">
                 In partnership with Joni & Friends Ministry (USA), we train and
                 work with churches to create Special Needs group/unit focused on
                 meeting the needs and integrating people with special needs/ or
                 disability in church life.
               </p>
-              <Link to='./training-and-resourcing'>
-                <div id='learnMore_btn'>
+              <Link to="./training-and-resourcing">
+                <div id="learnMore_btn">
                   <p>Learn More</p>
-                  <div className='learnMore_icon'></div>
+                  <div className="learnMore_icon"></div>
                 </div>
               </Link>
             </div>
 
-            <div className='rssCard publicSpeaking'>
-              <h2 className='cardTitle'>PUBLIC SPEAKING</h2>
-              <p className='cardContent'>
+            <div className="rssCard publicSpeaking">
+              <h2 className="cardTitle">PUBLIC SPEAKING</h2>
+              <p className="cardContent">
                 I speak to faith and non-faith-based audiences at: Carer’s
                 Groups, Women forums, Retreats, Churches and Conferences.
               </p>
-              <Link to='./public-speaking'>
-                <div id='learnMore_btn'>
+              <Link to="./public-speaking">
+                <div id="learnMore_btn">
                   <p>Learn More</p>
-                  <div className='learnMore_icon'></div>
+                  <div className="learnMore_icon"></div>
                 </div>
               </Link>
             </div>
@@ -239,10 +251,10 @@ const Homepage = () => {
         </div>
         {/* Section 4 */}
 
-        <div id='aboutFounder'>
+        <div id="aboutFounder">
           <SectionIcon image={Star} />
-          <div className='aboutContent'>
-            <div id='Q_A'>
+          <div className="aboutContent">
+            <div id="Q_A">
               <h1>Meet Olufunke Adeloye</h1>
               <p>
                 Olufunke is the founder of OAKONSULT DISABILITIES OUTREACH
@@ -267,15 +279,15 @@ const Homepage = () => {
                 people with Special Educational Needs and Disabilities.
               </p>
             </div>
-            <div id='Founder'>
-              <div id='founderImg'></div>
+            <div id="Founder">
+              <div id="founderImg"></div>
               <ExploreBtn
                 onClick={() => setDialogVisible(true)}
-                data={['Speak With Me', ChatIcon, true]}
+                data={["Speak With Me", ChatIcon, true]}
               />
             </div>
-            <div id='aboutFounder'>
-              <p className='founderDetails'>
+            <div id="aboutFounder">
+              <p className="founderDetails">
                 Seamlessly combining transferable skills from her experience
                 with her latest career move, she empowers parents/carers with
                 essential information and vital tools needed to support them as
@@ -286,7 +298,7 @@ const Homepage = () => {
                 the type of support available to children with Special
                 Educational Needs in the UK.
               </p>
-              <p className='founderDetails'>
+              <p className="founderDetails">
                 Olufunke has a Diploma in Personal Performance Coaching (Merit
                 Award) from the Coaching Academy, UK, MA International Social
                 Policy from the University of Kent, Canterbury, UK; M.Sc.
@@ -295,48 +307,48 @@ const Homepage = () => {
               </p>
 
               <button
-                style={{ border: 'none', backgroundColor: 'transparent' }}
+                style={{ border: "none", backgroundColor: "transparent" }}
                 onClick={() => {
-                  setShowStoryModal('flex');
+                  setShowStoryModal("flex");
                 }}
               >
-                <WatchStory data={{ text: 'Watch My Story', icon: PlayIcon }} />
+                <WatchStory data={{ text: "Watch My Story", icon: PlayIcon }} />
               </button>
             </div>
           </div>
         </div>
 
         {/* Section 4 */}
-        <div id='syllabusIntro'>
+        <div id="syllabusIntro">
           <SectionIcon image={StackIcon} />
-          <div id='syllabusIntroContent'>
-            <div id='syllabusIntroTitle'>
+          <div id="syllabusIntroContent">
+            <div id="syllabusIntroTitle">
               <h2>OAKONSULT’s TRAINING PROGRAMS</h2>
-              <Link to='./training-and-resourcing'>
+              <Link to="./training-and-resourcing">
                 <ExploreBtn
-                  data={['Browse Our Training Programs', syllabusIcon]}
+                  data={["Browse Our Training Programs", syllabusIcon]}
                 />
               </Link>
             </div>
 
-            <div id='syllabusCards'>
+            <div id="syllabusCards">
               <SyllabusCard
                 data={{
-                  Title: 'Beyond Suffering',
+                  Title: "Beyond Suffering",
                   Content:
-                    ' Beyond Suffering Course has been designed by the Joni and Friends Ministry (USA) to explore the problem of suffering in general and then to examine ways in which the disability community provides the church with a dynamic model of spiritual transformation.',
+                    " Beyond Suffering Course has been designed by the Joni and Friends Ministry (USA) to explore the problem of suffering in general and then to examine ways in which the disability community provides the church with a dynamic model of spiritual transformation.",
 
-                  Link: 'training-and-resourcing',
+                  Link: "training-and-resourcing",
                 }}
               />
 
               <SyllabusCard
                 data={{
-                  Title: 'Project Me',
+                  Title: "Project Me",
                   Content:
                     "Project Me' aims to support the Carer to find fulfilment and purpose in her caring role; and to push beyond boundaries for herself! This is offered as a group workshop over a 3-day period and is inclusive of well-being package offers/massage therapies/information on healthy living/beauty therapies and goodie bags for carers.",
 
-                  Link: 'carers',
+                  Link: "carers",
                 }}
               />
             </div>
@@ -346,7 +358,7 @@ const Homepage = () => {
       <Dialog dialogVisible={dialogVisible} setDialogVisible={setDialogVisible}>
         <InviteToSpeakMOdal
           setDialogVisible={setDialogVisible}
-          title='Speak With Me'
+          title="Speak With Me"
         />
       </Dialog>
     </>
