@@ -16,7 +16,6 @@ const Post = ({ endpoint }) => {
     const fetchData = async () => {
       const blogsRef = firestore.doc(`blogs/${query.split("?")[1]}`);
       const snapShot = await blogsRef.get();
-      console.log();
       if (snapShot.exists) {
         setData(snapShot.data());
         setLoading(false);

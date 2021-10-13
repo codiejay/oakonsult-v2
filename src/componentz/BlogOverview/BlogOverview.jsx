@@ -11,8 +11,8 @@ import placeholder from '../../assetz/images/placeholder.png';
 import skeleton from '../../Assets/images/blogskeleton.png'
 import MobileSkeleton from '../../Assets/images/mobileskeleton.png'
 
-import './styles.scss';
-import { Link } from 'react-router-dom';
+import "./styles.scss";
+import { Link } from "react-router-dom";
 
 const BlogOverview = () => {
   const location = useLocation().pathname;
@@ -24,12 +24,12 @@ const BlogOverview = () => {
   const [posts, setPosts] = useState([]);
   const [noPost, setNoPost] = useState(false);
   const [onEndReachedCalled, setOnEndReachedCalled] = useState(false);
-  const [blogsRef] = useState(firestore.collection('blogs'));
+  const [blogsRef] = useState(firestore.collection("blogs"));
 
   const windowWidth = window.innerWidth;
   articleOfTheWeek.body ? console.log('show main') : console.log("show skeleton");
   const onLoadArticleOfTheWeek = () => {
-    const slug = blogsRef.where('articleOfTheWeek', '==', true);
+    const slug = blogsRef.where("articleOfTheWeek", "==", true);
     slug.onSnapshot((snapShot) => {
       if (!snapShot.empty) {
         const data = snapShot.docs[0].data();
@@ -39,7 +39,7 @@ const BlogOverview = () => {
   };
   const onLoadTagPosts = () => {
     setIsLoading(true);
-    const slug = blogsRef.orderBy('posted_at', 'desc').limit(10);
+    const slug = blogsRef.orderBy("posted_at", "desc").limit(10);
     slug.onSnapshot((snapshot) => {
       if (snapshot.empty) {
         setNoPost(true);
@@ -60,7 +60,7 @@ const BlogOverview = () => {
       setOnEndReachedCalled(false);
       setIsMoreLoading(true);
       const slug = await blogsRef
-        .orderBy('created_at')
+        .orderBy("created_at")
         .startAfter(lastDoc.data().created_at)
         .limit(10);
       slug.onSnapshot((snapShot) => {
@@ -85,11 +85,11 @@ const BlogOverview = () => {
   useEffect(() => {
     onLoadTagPosts();
     onLoadArticleOfTheWeek();
-  }, ['']);
+  }, [""]);
   return (
-    <div className='blog-overview'>
-      <div className='main-article'>
-        <CustomButton label={`ARTICLE OF THE WEEK`} className={'tag-btn'} />
+    <div className="blog-overview">
+      <div className="main-article">
+        <CustomButton label={`ARTICLE OF THE WEEK`} className={"tag-btn"} />
         <Spacing height={`2em`} />
         <div className='article-data'>
           { 
@@ -150,7 +150,7 @@ const BlogOverview = () => {
       <Spacing height={`6em`} />
       <BlogFilterer />
       <Spacing height={`6em`} />
-      <div className='posts'>
+      <div className="posts">
         {posts.map((item, index) => (
           <BlogOverviewPostPreview key={index} data={item} />
         ))}
