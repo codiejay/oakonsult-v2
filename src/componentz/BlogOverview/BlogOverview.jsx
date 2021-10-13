@@ -8,6 +8,8 @@ import BlogOverviewPostPreview from '../BlogOverviewPostPreview/BlogOverviewPost
 import CustomButton from '../CustomButton/CustomButton';
 import Spacing from '../Spacing/Spacing';
 import placeholder from '../../assetz/images/placeholder.png';
+import skeleton from '../../Assets/images/blogskeleton.png'
+import MobileSkeleton from '../../Assets/images/mobileskeleton.png'
 
 import './styles.scss';
 import { Link } from 'react-router-dom';
@@ -24,6 +26,8 @@ const BlogOverview = () => {
   const [onEndReachedCalled, setOnEndReachedCalled] = useState(false);
   const [blogsRef] = useState(firestore.collection('blogs'));
 
+  const windowWidth = window.innerWidth;
+  articleOfTheWeek.body ? console.log('show main') : console.log("show skeleton");
   const onLoadArticleOfTheWeek = () => {
     const slug = blogsRef.where('articleOfTheWeek', '==', true);
     slug.onSnapshot((snapShot) => {
@@ -88,40 +92,59 @@ const BlogOverview = () => {
         <CustomButton label={`ARTICLE OF THE WEEK`} className={'tag-btn'} />
         <Spacing height={`2em`} />
         <div className='article-data'>
-          <div
-            className='tumbnail'
-            style={{
-              backgroundImage: `linear-gradient(#cac492b4, #cac4923f), url(${
-                articleOfTheWeek.tumbnail || articleOfTheWeek.thumbnail
-              })`,
-            }}
-          ></div>
-          <Spacing width={`2em`} />
-          <div className='article-text-button'>
-            <div className='article-text'>
-              <h1 className='main-article-title'>{articleOfTheWeek.title}</h1>
-              <p className='main-article-hook'>
-                {renderHTML(`${articleOfTheWeek.hook}`)}
-              </p>
-            </div>
-            <Spacing height={`12em`} />
-            {/* <div className="cr-btn-container"> */}
-            <Link
-              to={{
-                pathname: `${
-                  Main_Article.main_tag === 'parents'
-                    ? '/blogs/for-parents'
-                    : Main_Article.main_tag === 'siblings'
-                    ? '/blogs/for-siblings'
-                    : '/blogs/for-carers'
-                }/${Main_Article.title.split(' ').join('-').toLowerCase()}`,
-                search: articleOfTheWeek.id,
-              }}
-            >
-              <CustomButton label={`Continue Reading`} className={`cr-btn`} />
-            </Link>
-            {/* </div> */}
-          </div>
+          { 
+            articleOfTheWeek.body ? 
+            <>
+              <div
+                className='tumbnail'
+                style={{
+                  backgroundImage: `linear-gradient(#cac492b4, #cac4923f), url(${
+                    articleOfTheWeek.tumbnail || articleOfTheWeek.thumbnail
+                  })`,
+                }}
+              >
+
+              </div>
+              <Spacing width={`2em`} />
+              <div className='article-text-button'>
+                <div className='article-text'>
+                  <h1 className='main-article-title'>{articleOfTheWeek.title}</h1>
+                  <p className='main-article-hook'>
+                    {renderHTML(`${articleOfTheWeek.hook}`)}
+                  </p>
+                </div>
+                <Spacing height={`12em`} />
+                {/* <div className="cr-btn-container"> */}
+                <Link
+                  to={{
+                    pathname: `${
+                      Main_Article.main_tag === 'parents'
+                        ? '/blogs/for-parents'
+                        : Main_Article.main_tag === 'siblings'
+                        ? '/blogs/for-siblings'
+                        : '/blogs/for-carers'
+                    }/${Main_Article.title.split(' ').join('-').toLowerCase()}`,
+                    search: articleOfTheWeek.id,
+                  }}
+                >
+                  <CustomButton label={`Continue Reading`} className={`cr-btn`} />
+                </Link>
+              </div>
+            </>
+            : 
+            <div
+                style={{
+                  background: `url(${windowWidth < 800 ? MobileSkeleton : skeleton})`,
+                  backgroundPosition: 'left',
+                  backgroundSize: 'cover',
+                  width: '100%',
+                  height: '70vh',
+                  marginLeft: windowWidth < 800 ? '-10%' : '-5%'
+                }}
+              >
+
+              </div>
+          }
         </div>
       </div>
       <Spacing height={`6em`} />
