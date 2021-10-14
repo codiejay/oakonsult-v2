@@ -26,11 +26,11 @@ const Post = ({ endpoint }) => {
   return (
     <div>
       <Helmet>
-        <title>{loading ? "" : data.title} &mdash; Oak</title>
+        <title>{loading ? "" : data.title} &mdash; OAK</title>
         <meta property="og:title" content={loading ? "" : data.title} />
         <meta property="og:type" content="website" />
         <meta name="description" content="" />
-        <meta property="og:site_name" content="Oakonsult" />
+        <meta property="og:site_name" content="OAKONSULT" />
       </Helmet>
       {loading ? (
         <Spinner style={{ height: "70vh" }} />

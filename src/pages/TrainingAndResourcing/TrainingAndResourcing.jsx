@@ -20,14 +20,14 @@ const TrainingAndResourcing = () => {
   return (
     <>
       <Helmet>
-        <title>Training and Resourcing &mdash; Oak</title>
+        <title>Training and Resourcing &mdash; OAK</title>
         <meta
           property='og:title'
-          content='Training and Resourcing &mdash; Oak'
+          content='Training and Resourcing &mdash; OAK'
         />
         <meta property='og:type' content='website' />
         <meta name='description' content='' />
-        <meta property='og:site_name' content='Oakonsult' />
+        <meta property='og:site_name' content='OAKONSULT' />
       </Helmet>
       <div id='Training_intro'>
         <div

@@ -7,11 +7,11 @@ const Churches = () => {
   return (
     <>
       <Helmet>
-        <title>Churches &mdash; Oak</title>
-        <meta property="og:title" content="Churches &mdash; Oak" />
+        <title>Churches &mdash; OAK</title>
+        <meta property="og:title" content="Churches &mdash; OAK" />
         <meta property="og:type" content="website" />
         <meta name="description" content="" />
-        <meta property="og:site_name" content="Oakonsult" />
+        <meta property="og:site_name" content="OAKONSULT" />
       </Helmet>
       <div>
         <h1>Churches</h1>

@@ -21,11 +21,11 @@ const Carers = () => {
   return (
     <>
       <Helmet>
-        <title>Carers &mdash; Oak</title>
-        <meta property='og:title' content='Churches &mdash; Oak' />
+        <title>Carers &mdash; OAK</title>
+        <meta property='og:title' content='Churches &mdash; OAK' />
         <meta property='og:type' content='website' />
         <meta name='description' content='' />
-        <meta property='og:site_name' content='Oakonsult' />
+        <meta property='og:site_name' content='OAKONSULT' />
       </Helmet>
       <div id='Carers_intro'>
         <div

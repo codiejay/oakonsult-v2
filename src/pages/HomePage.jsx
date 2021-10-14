@@ -49,14 +49,14 @@ const Homepage = () => {
   return (
     <>
       <Helmet>
-        <title>Oak</title>
-        <meta property="og:title" content="Oakonsult" />
+        <title>OAK</title>
+        <meta property="og:title" content="OAKONSULT" />
         <meta property="og:type" content="website" />
         <meta
           name="description"
-          content="OAKONSULT DISABILITIES OUTREACH- Bringing the life of Christ into the Disability Community"
+          content="OAKONSULT DISABILITIES OUTREACH (OAKONSULT) is a mission focused on introducing people with special needs children (parents/carers) to the possibility of having a purposeful and fulfilled lifestyle despite life demands associated with the caring role"
         />
-        <meta property="og:site_name" content="Oakonsult" />
+        <meta property="og:site_name" content="OAKONSULT" />
         <meta property="og:url" content="https://www.oakonsult.com" />
       </Helmet>
       <section id="homePage">
