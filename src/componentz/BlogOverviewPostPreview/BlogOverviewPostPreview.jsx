@@ -1,5 +1,5 @@
 import moment from "moment";
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router";
 import CustomButton from "../CustomButton/CustomButton";
 import Spacing from "../Spacing/Spacing";
@@ -14,6 +14,23 @@ const BlogOverviewPostPreview = ({
 }) => {
   console.log(tumbnail);
   const history = useHistory();
+  const [imageValid, setImageValid] = useState();
+  const image_url = thumbnail || tumbnail;
+  function checkImage(imageSrc, good, bad) {
+    var img = new Image();
+    img.onload = good;
+    img.onerror = bad;
+    img.src = imageSrc;
+  }
+  checkImage(
+    image_url,
+    function () {
+      setImageValid(true);
+    },
+    function () {
+      setImageValid(false);
+    }
+  );
   const OnTagClick = () => {
     history.push(
       `${
@@ -30,20 +47,18 @@ const BlogOverviewPostPreview = ({
       <div className={`blog-overview-post-preview`}>
         <div
           className={`flex-center-column tumbnail`}
-          style={{
-            backgroundImage:
-              main_tag === "for-parents"
-                ? `linear-gradient(#cac492b4, #cac4923f), url(${
-                    tumbnail || thumbnail || placeholder
-                  })`
-                : main_tag === "for-siblings"
-                ? `linear-gradient(#cac492b4, #cac4923f), url(${
-                    tumbnail || thumbnail || placeholder
-                  })`
-                : `linear-gradient(#cac492b4, #cac4923f), url(${
-                    tumbnail || thumbnail || placeholder
-                  })`,
-          }}
+          style={
+            imageValid
+              ? {
+                  backgroundImage:
+                    main_tag === "for-parents"
+                      ? `url(${tumbnail || thumbnail})`
+                      : main_tag === "for-siblings"
+                      ? `url(${tumbnail || thumbnail})`
+                      : `url(${tumbnail || thumbnail})`,
+                }
+              : { backgroundColor: "#009ba7" }
+          }
         >
           <CustomButton
             label={main_tag}
