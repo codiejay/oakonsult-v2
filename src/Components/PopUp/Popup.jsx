@@ -46,11 +46,6 @@ const Popup = (props) => {
 
         <div className='horizontalLine'></div>
         <div className='popupNav'>
-          <div className='welcome'>
-            <div className='popupImg'></div>
-            <h2>Welcome to OAKonsult, thanks for visiting</h2>
-          </div>
-
           <div className='navLinks'>
             <p
               className='speakWithMe nav_btn'
@@ -79,6 +74,10 @@ const Popup = (props) => {
             >
               Watch Youtube Videos
             </a>
+          </div>
+          <div className='welcome'>
+            <div className='popupImg'></div>
+            <h2>Welcome to OAKonsult, thanks for visiting</h2>
           </div>
         </div>
       </div>
