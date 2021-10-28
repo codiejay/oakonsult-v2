@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useHistory } from "react-router";
 import CustomButton from "../CustomButton/CustomButton";
 import Spacing from "../Spacing/Spacing";
-import placeholder from "../../assetz/images/placeholder.png";
 
 import "./styles.scss";
 import { colors } from "../../constants/Colors";
@@ -48,7 +47,16 @@ const BlogOverviewPostPreview = ({
         <div
           className={`flex-center-column tumbnail`}
           style={
-            imageValid
+            tumbnail ===
+              "https://i9.ytimg.com/vi/4iir1nvI444/mqdefault.jpg?v=60759fc8&sqp=CPynwIsG&rs=AOn4CLC-2dSK8nLlNGiRrpl7X8mY0u_xlg" ||
+            thumbnail ===
+              "https://i9.ytimg.com/vi/4iir1nvI444/mqdefault.jpg?v=60759fc8&sqp=CPynwIsG&rs=AOn4CLC-2dSK8nLlNGiRrpl7X8mY0u_xlg" ||
+            tumbnail ===
+              "https://i9.ytimg.com/vi/uecw4ymegRg/mq1.jpg?sqp=CNClwIsG&rs=AOn4CLAeCUCJDgWZ09QTxWsKrv0E6oY22Q" ||
+            thumbnail ===
+              "https://i9.ytimg.com/vi/uecw4ymegRg/mq1.jpg?sqp=CNClwIsG&rs=AOn4CLAeCUCJDgWZ09QTxWsKrv0E6oY22Q"
+              ? { backgroundColor: "#009ba7" }
+              : imageValid
               ? {
                   backgroundImage:
                     main_tag === "for-parents"
