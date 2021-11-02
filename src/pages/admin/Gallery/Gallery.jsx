@@ -24,7 +24,11 @@ const Gallery = () => {
         setHasGallery(true);
         const galleryArray = [];
         snapShot.forEach((item) => {
-          galleryArray.push(item.data());
+          const data = {
+            id: item.id,
+            ...item.data(),
+          };
+          galleryArray.push(data);
         });
         setGallery(galleryArray);
         setLoading(false);
