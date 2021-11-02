@@ -15,6 +15,7 @@ const GalleryOverView = ({ hasGallery, gallery, loading }) => {
   const [dialogVisible, setDialogVisible] = useState(false);
   const history = useHistory();
   const dispatch = useDispatch();
+  console.log(gallery);
   return loading ? (
     <Spinner style={{ height: "30vh" }} />
   ) : (
@@ -55,9 +56,7 @@ const GalleryOverView = ({ hasGallery, gallery, loading }) => {
                 }}
               >
                 <Spacing height="1em" />
-                <div className="flex-center photo-icon">
-                  <Entypo name="shop" size={30} color="black" />
-                </div>
+                <img src={item.photoUrl} alt="" className="gallary-image" />
                 <Spacing height="1em" />
                 <h3>{item.photoCode}</h3>
                 <h3>{item.name}</h3>

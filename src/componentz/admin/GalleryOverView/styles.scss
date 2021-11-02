@@ -4,6 +4,7 @@
 
 .has-data {
   padding: 2em;
+  overflow-y: scroll;
   .photo-preview {
     cursor: pointer;
     color: $white;
@@ -24,5 +25,12 @@
     position: absolute;
     bottom: 2em;
     right: 2em;
+  }
+  .photo-list {
+    flex-wrap: wrap;
+  }
+  .gallary-image {
+    width: 100%;
+    height: 100%;
   }
 }
