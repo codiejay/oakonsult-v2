@@ -1,27 +1,27 @@
-import React, { useEffect, useRef, useState } from 'react';
-import SunEditor from 'suneditor-react';
-import plugins from 'suneditor/src/plugins';
-import image from 'suneditor/src/plugins/dialog/link';
-import 'suneditor/dist/css/suneditor.min.css';
-import loader from '../../../assetz/loader.gif';
-import { v4 as uuidv4 } from 'uuid';
-import CustomInput from '../../../componentz/CustomInput/CustomInput';
-import Spacing from '../../../componentz/Spacing/Spacing';
-import { OnPost, OnSaveToDraft } from '../../../firebase/firestore';
-import CustomButton from '../../../componentz/CustomButton/CustomButton';
-import { GetWindowDimensions } from '../../../utils/functions';
+import React, { useEffect, useRef, useState } from "react";
+import SunEditor from "suneditor-react";
+import plugins from "suneditor/src/plugins";
+import image from "suneditor/src/plugins/dialog/link";
+import "suneditor/dist/css/suneditor.min.css";
+import loader from "../../../assetz/loader.gif";
+import { v4 as uuidv4 } from "uuid";
+import CustomInput from "../../../componentz/CustomInput/CustomInput";
+import Spacing from "../../../componentz/Spacing/Spacing";
+import { OnPost, OnSaveToDraft } from "../../../firebase/firestore";
+import CustomButton from "../../../componentz/CustomButton/CustomButton";
+import { GetWindowDimensions } from "../../../utils/functions";
 
-import './styles.scss';
+import "./styles.scss";
 
 const CreatePost = () => {
-  const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
-  const [title, setTitle] = useState('');
-  const [mainTag, setMainTag] = useState('');
-  const [thumbnail, setThumbnail] = useState('');
-  const [hook, setHook] = useState('');
-  const [body, setBody] = useState('');
-  const [tags, setTags] = useState(['all']);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [title, setTitle] = useState("");
+  const [mainTag, setMainTag] = useState("");
+  const [thumbnail, setThumbnail] = useState("");
+  const [hook, setHook] = useState("");
+  const [body, setBody] = useState("");
+  const [tags, setTags] = useState(["all"]);
   const [ready, setReady] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -29,32 +29,31 @@ const CreatePost = () => {
     setHook(content);
   };
   const handleChange = (content, core) => {
-    console.log(core);
     setBody(content);
   };
   const CleanUp = () => {
-    setErrorMessage('');
-    setSuccessMessage('Post successfully created');
-    setTitle('');
-    setMainTag('');
-    setThumbnail('');
-    setHook('');
-    setBody('');
-    setTags(['all']);
+    setErrorMessage("");
+    setSuccessMessage("Post successfully created");
+    setTitle("");
+    setMainTag("");
+    setThumbnail("");
+    setHook("");
+    setBody("");
+    setTags(["all"]);
     setReady(false);
     setLoading(false);
   };
   const getPostInfo = () => {
-    const id = uuidv4().split('-').join('');
+    const id = uuidv4().split("-").join("");
     const data = {
       id,
       body,
       title,
       hook,
       thumbnail,
-      user: 'Admin',
+      user: "Admin",
       tags,
-      main_tag: mainTag.toLocaleLowerCase().split(' ').join('-'),
+      main_tag: mainTag.toLocaleLowerCase().split(" ").join("-"),
       posted_at: Date.now(),
       updated_at: Date.now(),
       articleOfTheWeek: false,
@@ -75,39 +74,37 @@ const CreatePost = () => {
     // ) {
     setLoading(true);
     const data = getPostInfo();
-    console.log(data);
     try {
       // await OnSaveToDraft(getPostInfo());
       setLoading(false);
     } catch (error) {
-      console.log(error);
-      setErrorMessage('Failed, try again');
+      setErrorMessage("Failed, try again");
     }
     // }
   };
   const OnCreatePost = async () => {
     if (
-      body.trim() === '' ||
-      title.trim() === '' ||
-      thumbnail.trim() === '' ||
-      hook.trim() === ''
+      body.trim() === "" ||
+      title.trim() === "" ||
+      thumbnail.trim() === "" ||
+      hook.trim() === ""
     ) {
-      setErrorMessage('All fields is required');
+      setErrorMessage("All fields is required");
       return;
     }
     setLoading(true);
     try {
       OnPost(getPostInfo(), CleanUp);
     } catch (error) {
-      setErrorMessage('Failed, try again');
+      setErrorMessage("Failed, try again");
     }
   };
   const OnMouse = () => {
     if (
-      body.trim() === '' ||
-      title.trim() === '' ||
-      thumbnail.trim() === '' ||
-      hook.trim() === ''
+      body.trim() === "" ||
+      title.trim() === "" ||
+      thumbnail.trim() === "" ||
+      hook.trim() === ""
     ) {
       setReady(false);
     } else {
@@ -115,47 +112,47 @@ const CreatePost = () => {
     }
   };
   useEffect(() => {
-    window.addEventListener('popstate', function (event) {
-      console.log('goback');
+    window.addEventListener("popstate", function (event) {
+      console.log("goback");
     });
   });
   return (
     <>
-      {errorMessage !== '' && (
-        <span className='noty error'>{errorMessage}</span>
+      {errorMessage !== "" && (
+        <span className="noty error">{errorMessage}</span>
       )}
-      {successMessage !== '' && (
-        <span className='noty success'>{successMessage}</span>
+      {successMessage !== "" && (
+        <span className="noty success">{successMessage}</span>
       )}
-      <div className='absolute-btns'>
+      <div className="absolute-btns">
         <CustomButton
-          label='Save to Draft'
-          className='create-post-btn'
+          label="Save to Draft"
+          className="create-post-btn"
           onClick={!loading && OnSaveDraft}
-          style={{ cursor: 'pointer' }}
+          style={{ cursor: "pointer" }}
         />
-        <Spacing width='2em' />
+        <Spacing width="2em" />
         <CustomButton
-          label='Post'
-          className='create-post-btn'
+          label="Post"
+          className="create-post-btn"
           onClick={!loading && OnCreatePost}
           onMouseEnter={OnMouse}
           onMouseLeave={OnMouse}
-          style={{ cursor: !ready ? 'not-allowed' : 'pointer' }}
+          style={{ cursor: !ready ? "not-allowed" : "pointer" }}
         />
       </div>
-      <div className='create-post'>
-        <div className='properties'>
+      <div className="create-post">
+        <div className="properties">
           <CustomInput
-            label='Title'
+            label="Title"
             value={title}
-            type={'text'}
+            type={"text"}
             onChange={({ target }) => setTitle(target.value)}
             required
           />
-          <Spacing height='1em' />
+          <Spacing height="1em" />
           <span className={`hook-label`}>Hook</span>
-          <Spacing height='0.5em' />
+          <Spacing height="0.5em" />
           <SunEditor
             hideToolbar={true}
             onChange={onSetHook}
@@ -163,77 +160,77 @@ const CreatePost = () => {
             enable={true}
             height={`${GetWindowDimensions().height - 600}px`}
           />
-          <Spacing height='1em' />
+          <Spacing height="1em" />
           <CustomInput
-            label='Thumbnail'
+            label="Thumbnail"
             value={thumbnail}
-            type={'text'}
+            type={"text"}
             onChange={({ target }) => setThumbnail(target.value)}
             required
           />
-          <Spacing height='1em' />
+          <Spacing height="1em" />
           <span className={`tag-label`}>Select Tag</span>
-          <Spacing height='2em' />
+          <Spacing height="2em" />
           <MainTag
-            tagName='For Parents'
+            tagName="For Parents"
             mainTag={mainTag}
             setMainTag={setMainTag}
           />
-          <Spacing height='1em' />
+          <Spacing height="1em" />
           <MainTag
-            tagName='For Siblings'
+            tagName="For Siblings"
             mainTag={mainTag}
             setMainTag={setMainTag}
           />
-          <Spacing height='1em' />
+          <Spacing height="1em" />
           <MainTag
-            tagName='For Churches'
+            tagName="For Churches"
             mainTag={mainTag}
             setMainTag={setMainTag}
           />
         </div>
-        <div className='editor'>
+        <div className="editor">
           <SunEditor
             onChange={handleChange}
             enableToolbar={true}
             showToolbar={true}
             image={image}
-            placeholder='Enter content'
+            placeholder="Enter content"
             show={true}
             enable={true}
             height={`${GetWindowDimensions().height - 380}px`}
             setOptions={{
               plugins: plugins,
               buttonList: [
-                ['undo', 'redo', 'fontSize'],
+                ["undo", "redo", "fontSize"],
                 [
-                  'bold',
-                  'underline',
-                  'italic',
-                  'strike',
-                  'subscript',
-                  'superscript',
+                  "bold",
+                  "underline",
+                  "italic",
+                  "strike",
+                  "subscript",
+                  "superscript",
                 ],
                 [
-                  'fontColor',
-                  'hiliteColor',
-                  'outdent',
-                  'indent',
-                  'align',
-                  'horizontalRule',
-                  'list',
-                  'table',
+                  "fontColor",
+                  "hiliteColor",
+                  "outdent",
+                  "indent",
+                  "align",
+                  "horizontalRule",
+                  "list",
+                  "table",
                 ],
                 [
-                  'link',
-                  'image',
-                  'video',
-                  'fullScreen',
-                  'showBlocks',
-                  'codeView',
-                  'preview',
-                  'print',
-                  'save',
+                  "link",
+                  "image",
+                  "video",
+                  "fullScreen",
+                  "showBlocks",
+                  "codeView",
+                  "preview",
+                  "print",
+                  "save",
                 ],
               ],
             }}
@@ -248,13 +245,13 @@ export default CreatePost;
 
 const MainTag = ({ mainTag, tagName, setMainTag }) => {
   return (
-    <div className='post-tag'>
+    <div className="post-tag">
       <div
-        className='post-tag-check'
+        className="post-tag-check"
         onClick={() => setMainTag(tagName)}
-        style={mainTag === tagName ? { backgroundColor: '#6ab5b9' } : {}}
+        style={mainTag === tagName ? { backgroundColor: "#6ab5b9" } : {}}
       ></div>
-      <span className='post-tag-text'>{tagName}</span>
+      <span className="post-tag-text">{tagName}</span>
     </div>
   );
 };

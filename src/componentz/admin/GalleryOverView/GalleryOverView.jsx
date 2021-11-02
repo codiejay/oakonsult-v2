@@ -7,8 +7,10 @@ import Dialog from "../../Dialog/Dialog";
 import Spacing from "../../Spacing/Spacing";
 import AddGallery from "../AddGallery/AddGallery";
 import Spinner from "../../Spinner/Spinner";
+import trashIcon from "../../../assetz/icons/trashIcon.svg";
 
 import "./styles.scss";
+import { firestore } from "../../../firebase/config";
 
 const GalleryOverView = ({ hasGallery, gallery, loading }) => {
   const [type, setType] = useState(null);
@@ -51,17 +53,22 @@ const GalleryOverView = ({ hasGallery, gallery, loading }) => {
                 className="flex-center-column photo-preview"
                 onClick={() => {
                   // dispatch(setGallery(item));
-                  history.push(`/gallery/${item.photoCode}`);
+                  // history.push(`/gallery/${item.photoCode}`);
                 }}
               >
                 <Spacing height="1em" />
-                <div className="flex-center photo-icon">
-                  <Entypo name="shop" size={30} color="black" />
-                </div>
+                <img src={item.photoUrl} alt="" className="gallary-image" />
                 <Spacing height="1em" />
-                <h3>{item.photoCode}</h3>
-                <h3>{item.name}</h3>
-                <h3>{item.address}</h3>
+                <div className="controls">
+                  <div
+                    className="ctrl trash"
+                    onDoubleClick={() => {
+                      firestore.collection("gallery").doc(item.id).delete();
+                    }}
+                  >
+                    <img src={trashIcon} alt="trash" />
+                  </div>
+                </div>
               </div>
             ))}
           </div>

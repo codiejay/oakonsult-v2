@@ -16,13 +16,19 @@ const Gallery = () => {
   const [loading, setLoading] = useState(true);
   const history = useHistory();
   const onLoadGallery = useCallback(async () => {
-    const galleryRef = firestore.collection("gallery").orderBy("name", "asc");
+    const galleryRef = firestore
+      .collection("gallery")
+      .orderBy("created_at", "asc");
     galleryRef.onSnapshot((snapShot) => {
       if (!snapShot.empty) {
         setHasGallery(true);
         const galleryArray = [];
         snapShot.forEach((item) => {
-          galleryArray.push(item.data());
+          const data = {
+            id: item.id,
+            ...item.data(),
+          };
+          galleryArray.push(data);
         });
         setGallery(galleryArray);
         setLoading(false);
