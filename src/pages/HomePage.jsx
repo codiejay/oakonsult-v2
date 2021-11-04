@@ -1,30 +1,30 @@
-import React, { Component, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
-import "../Scss/homepage.scss";
-import "../Scss/mediaQuery.scss";
+import React, { Component, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import '../Scss/homepage.scss';
+import '../Scss/mediaQuery.scss';
 
 // Images
-import LibraryImg from "../Assets/Library.svg";
-import HeartImg from "../Assets/heart.svg";
-import Star from "../Assets/star.svg";
-import ChatIcon from "../Assets/ChatIcon.svg";
-import PlayIcon from "../Assets/playbutton.svg";
-import StackIcon from "../Assets/stackIcon.svg";
-import syllabusIcon from "../Assets/syllabusIcon.svg";
-import QuestionMark from "../Assets/icons/QuestionMark.svg";
+import LibraryImg from '../Assets/Library.svg';
+import HeartImg from '../Assets/heart.svg';
+import Star from '../Assets/star.svg';
+import ChatIcon from '../Assets/ChatIcon.svg';
+import PlayIcon from '../Assets/playbutton.svg';
+import StackIcon from '../Assets/stackIcon.svg';
+import syllabusIcon from '../Assets/syllabusIcon.svg';
+import QuestionMark from '../Assets/icons/QuestionMark.svg';
 
 // External components
-import ExploreBtn from "../Components/ExploreBtn";
-import SectionIcon from "../Components/SectionIcon";
-import UserTag from "../Components/UserTag";
-import TagDetail from "../Components/TagDetails";
-import WatchStory from "../Components/WatchStory";
-import SyllabusCard from "../Components/SyllabusCard";
-import Dialog from "../componentz/Dialog/Dialog";
-import InviteToSpeakMOdal from "../componentz/InviteToSpeakMOdal/InviteToSpeakMOdal";
-import VideoModal from "../Components/VideoModal/VideoModal";
-import About from "../Components/About/About";
+import ExploreBtn from '../Components/ExploreBtn';
+import SectionIcon from '../Components/SectionIcon';
+import UserTag from '../Components/UserTag';
+import TagDetail from '../Components/TagDetails';
+import WatchStory from '../Components/WatchStory';
+import SyllabusCard from '../Components/SyllabusCard';
+import Dialog from '../componentz/Dialog/Dialog';
+import InviteToSpeakMOdal from '../componentz/InviteToSpeakMOdal/InviteToSpeakMOdal';
+import VideoModal from '../Components/VideoModal/VideoModal';
+import About from '../Components/About/About';
 
 // Internal Component
 
@@ -32,18 +32,18 @@ const Homepage = () => {
   const [dialogVisible, setDialogVisible] = useState(false);
   const [DisplayModal, ChangeDisplayModal] = useState(false);
   const [W_SdisplayModal, ChangeW_SdisplayModal] = useState(false);
-  const [showStoryModal, setShowStoryModal] = useState("none");
+  const [showStoryModal, setShowStoryModal] = useState('none');
 
   let showVideoPlayer;
   DisplayModal
-    ? (showVideoPlayer = { display: "flex" })
-    : (showVideoPlayer = { display: "none" });
+    ? (showVideoPlayer = { display: 'flex' })
+    : (showVideoPlayer = { display: 'none' });
 
   let showStoryPlayer;
   // useEffect(() => {
   W_SdisplayModal
-    ? (showStoryPlayer = { display: "flex" })
-    : (showStoryPlayer = { display: "none" });
+    ? (showStoryPlayer = { display: 'flex' })
+    : (showStoryPlayer = { display: 'none' });
   // }, [W_SdisplayModal]);
 
   return (
@@ -63,7 +63,7 @@ const Homepage = () => {
         {/* Intro Video Player */}
         <div id='VideoModal' style={showVideoPlayer}>
           <VideoModal
-            data={['https://www.youtube.com/embed/DeTo3K41Ulk']}
+            data={['https://www.youtube.com/embed/SMsjElx8crk']}
             closeFunc={() => {
               ChangeDisplayModal(false);
             }}
