@@ -63,7 +63,7 @@ const Homepage = () => {
         {/* Intro Video Player */}
         <div id='VideoModal' style={showVideoPlayer}>
           <VideoModal
-            data={['https://www.youtube.com/embed/SMsjElx8crk']}
+            data={['https://www.youtube.com/embed/GTm3ZR6UhDA']}
             closeFunc={() => {
               ChangeDisplayModal(false);
             }}

@@ -1,3 +1,7 @@
+$breakpoint_three: 600px;
+$breakpoint_two: 1024px;
+$breakpoint_one: 1200px;
+
 $DM: 'DM Serif Display', serif;
 $Archivo: 'Archivo', sans-serif;
 $teal: #009ba7;
@@ -6,42 +10,239 @@ $blue: #0aa7ff;
 $purple: #ff0ac9;
 $yellow: #ffba0a;
 $pink: #ff34ba;
-
 $oakGold: #cac492;
 
+@mixin breakpoint_one {
+  @media (min-width: #{breakpoint_two}) and (max-width: #{$breakpoint_one}) {
+    @content;
+  }
+}
+@mixin breakpoint_two {
+  @media (min-width: #{$breakpoint_three}) and (max-width: #{$breakpoint_two}) {
+    @content;
+  }
+}
+
+@mixin breakpoint_three {
+  @media (max-width: #{$breakpoint_three}) {
+    @content;
+  }
+}
+
 #aboutOak {
-  box-shadow: 0px 0px 19px rgba(128, 128, 128, 0.363);
   border-radius: 10px;
-  padding: 2rem;
 
-  h2 {
-    text-align: center;
-    font-family: $DM;
-    font-size: 45px;
-    position: relative;
-    // width: max-content;
+  #sectionIntro {
+    height: 80%;
+    width: 100%;
+    background: $teal;
+    color: white;
+    padding: 2rem 2rem 4rem 20%;
 
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0%;
-      bottom: -10px;
-      width: 100%;
-      height: 4px;
-      background: $oakGold;
+    @include breakpoint_two() {
+      padding: 2rem 0 10rem 0;
+    }
+
+    @include breakpoint_three() {
+      // padding: 5rem 0;
+      padding: 1rem;
+    }
+    @include breakpoint_one() {
+      padding: 2rem 2rem 4rem 10%;
+      display: none;
+    }
+    h2 {
+      font-size: 64px;
+      position: relative;
+      margin: 10rem 0;
+      width: max-content;
+      @include breakpoint_three() {
+        font-size: 24px;
+        margin: 6rem auto;
+      }
+      &::before {
+        content: '';
+        height: 370px;
+        width: 482px;
+        position: absolute;
+        left: 90%;
+        top: -220%;
+        background: url(../../Assets/images/AboutTree.svg);
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+
+        @include breakpoint_two() {
+          display: none;
+        }
+        @include breakpoint_three() {
+          display: none;
+        }
+      }
+
+      @include breakpoint_two() {
+        text-align: center;
+        margin: 10rem auto;
+      }
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.473);
+      max-width: 60%;
+      text-align: justify;
+      text-justify: inter-word;
+      font-size: 20px;
+      line-height: 29px;
+      span {
+        color: white;
+        font-size: 20px;
+      }
+
+      @include breakpoint_two() {
+        margin: auto;
+      }
+      @include breakpoint_three() {
+        margin: auto;
+        max-width: none;
+        // font-size: 18px;
+        text-align: initial;
+      }
     }
   }
-  p {
-    margin-top: 1.5rem;
+
+  #OurMission,
+  #OurVision,
+  #OurCreed {
+    margin: 2rem 0;
+    height: 700px;
+
+    .content {
+      width: 38%;
+
+      @include breakpoint_one() {
+        // display: none;
+      }
+      @include breakpoint_two() {
+        width: 80%;
+      }
+      @include breakpoint_three() {
+        width: 100%;
+      }
+    }
+
+    h2 {
+      color: rgba(0, 0, 0, 0.56);
+      font-size: 55px;
+    }
+    p {
+      font-size: 22px;
+      line-height: 212.72%;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    #sectionIcon {
+      height: 100px;
+      width: 100px;
+      margin: 2rem 0;
+    }
   }
 
-  ul {
-    margin-top: 1.5rem;
-    margin-left: 1rem;
-    li {
-      font-size: 18px;
-      list-style: disc;
-      //   display: inline-block;
+  #OurMission {
+    background: url(../../Assets/images/MissionBackground.png);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+    @include breakpoint_one() {
+    }
+    @include breakpoint_two() {
+      background-size: cover;
+      padding: 1rem;
+    }
+    @include breakpoint_three() {
+      background-size: cover;
+      padding: 1rem;
+    }
+    #MissionContent {
+      #sectionIcon {
+        background: url(../../Assets/icons/missionIcon.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+    }
+
+    #MissionImage {
+      height: 100%;
+      width: 100%;
+      background: rgba(172, 255, 47, 0.274);
+    }
+  }
+
+  #OurVision {
+    background: url(../../Assets/images/VisionBackground.png);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+    @include breakpoint_one() {
+    }
+    @include breakpoint_two() {
+      background-size: cover;
+      padding: 1rem;
+    }
+    @include breakpoint_three() {
+      background-size: cover;
+      padding: 1rem;
+    }
+    #VisionContent {
+      #sectionIcon {
+        background: url(../../Assets/icons/VisionIcon.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+    }
+
+    #VisionImage {
+      // height: ;
+      background: rgba(2, 0, 128, 0.24);
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  #OurCreed {
+    background: url(../../Assets/images/CreedBackground.png);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+    @include breakpoint_one() {
+    }
+    @include breakpoint_two() {
+      background-size: cover;
+      padding: 1rem;
+    }
+    @include breakpoint_three() {
+      background-size: cover;
+      padding: 1rem;
+    }
+    #CreedContent {
+      #sectionIcon {
+        background: url(../../Assets/icons/CreedIcon.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+    }
+
+    #CreedImage {
+      // height: ;
+      background: rgba(0, 128, 0, 0.24);
+      height: 100%;
+      width: 100%;
     }
   }
 }

@@ -3,32 +3,65 @@ import './About.scss';
 const About = () => {
   return (
     <div id='aboutOak'>
-      <h2>About OAKONSULT</h2>
-      <p>
-        OAKONSULT DISABILITIES OUTREACH (OAKONSULT) is a mission focused on
-        introducing people with special needs children (parents/carers) to the
-        possibility of having a purposeful and fulfilled lifestyle despite life
-        demands associated with the caring role. We also work with churches and
-        other organizations to create awareness and build inclusive culture in
-        relation to people with disabilities and their families.
-      </p>
+      <div id='sectionIntro'>
+        <h2>ABOUT OAK.</h2>
+        <p>
+          <span id='WhiteText'>
+            {' '}
+            OAKONSULT DISABILITY OUTREACH (OAKONSULT){' '}
+          </span>
+          Is A Mission Focused On Introducing People With{' '}
+          <span id='WhiteText'>Special Needs Children</span>
+          (Parents/ Carers) To The Possibility Of{' '}
+          <span id='WhiteText'>
+            {' '}
+            Having A Purposeful And Fufilled Lifestyle
+          </span>{' '}
+          Despite Life Demands Associated With The{' '}
+          <span id='WhiteText'>Caring Role.</span> We Also Work With{' '}
+          <span id='WhiteText'></span>Churches And Other Organizations To Create
+          Awareness And Build <span id='WhiteText'>Inclusive Culture</span> In
+          Relation To People With Disability And Their Families
+        </p>
+      </div>
+      <div id='OurMission'>
+        <div id='MissionContent' className='content'>
+          <div id='sectionIcon'></div>
+          <h2>Our Mission</h2>
+          <p>
+            OAKONSULT’s mandate is to introduce the gospel of Christ to Carers.
+            We empower Carers and families dealing with disability matters with
+            biblical principles and truths that will enable them find fulfilment
+            at whatever stage they might be in their individual journeys.
+          </p>
+        </div>
+      </div>
 
-      <h2>Mission</h2>
-      <p>
-        OAKONSULT’s mandate is to introduce the gospel of Christ to Carers. We
-        empower Carers and families dealing with disability matters with
-        biblical principles and truths that will enable them find fulfilment at
-        whatever stage they might be in their individual journeys.
-      </p>
+      <div id='OurVision'>
+        <div id='VisionContent' className='content'>
+          <div id='sectionIcon'></div>
+          <h2>Our Vision</h2>
+          <p>
+            OAKONSULT’s mandate is to introduce the gospel of Christ to Carers.
+            We empower Carers and families dealing with disability matters with
+            biblical principles and truths that will enable them find fulfilment
+            at whatever stage they might be in their individual journeys.
+          </p>
+        </div>
+      </div>
 
-      <h2>Values</h2>
-      <ul>
-        <li>Faith</li>
-        <li>Strength</li>
-        <li>Endurance</li>
-        <li>Resilience</li>
-        <li>Kindness</li>
-      </ul>
+      <div id='OurCreed'>
+        <div id='CreedContent' className='content'>
+          <div id='sectionIcon'></div>
+          <h2>Our Creed</h2>
+          <p>
+            OAKONSULT’s mandate is to introduce the gospel of Christ to Carers.
+            We empower Carers and families dealing with disability matters with
+            biblical principles and truths that will enable them find fulfilment
+            at whatever stage they might be in their individual journeys.
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
