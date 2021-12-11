@@ -29,7 +29,7 @@ const About = () => {
           <div id='sectionIcon'></div>
           <h2>Our Mission</h2>
           <p>
-          OAKONSULT’s mandate is to introduce the gospel of Christ to Carers. We empower Carers and families dealing with disability matters with biblical principles and truths that will enable them find fulfilment at whatever stage they might be in their individual journeys.
+            OAKONSULT’s mandate is to introduce the gospel of Christ to Carers. We empower Carers and families dealing with disability matters with biblical principles and truths that will enable them find fulfilment at whatever stage they might be in their individual journeys.OAKONSULT’s mandate is to introduce the gospel of Christ to Carers. 
           </p>
         </div>
       </div>
