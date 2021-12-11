@@ -44,7 +44,6 @@ $oakGold: #cac492;
     }
 
     @include breakpoint_three() {
-      // padding: 5rem 0;
       padding: 1rem;
     }
     @include breakpoint_one() {
@@ -67,9 +66,9 @@ $oakGold: #cac492;
         position: absolute;
         left: 90%;
         top: -220%;
-        background: url(../../Assets/images/AboutTree.svg);
+        background: url(../../Assets/images/aboutTree.svg);
         background-position: center;
-        background-size: 100%;
+        background-size: contain;
         background-repeat: no-repeat;
 
         @include breakpoint_two() {
@@ -98,7 +97,7 @@ $oakGold: #cac492;
         font-size: 20px;
       }
 
-      @include breakpoint_two() {
+      @include breakpoint_one() {
         margin: auto;
       }
       @include breakpoint_three() {
@@ -112,13 +111,14 @@ $oakGold: #cac492;
 
   #OurMission,
   #OurVision,
-  #OurCreed {
-    margin: 2rem 0;
-    height: 700px;
+  #OurCreed, 
+  #ourValues {
+    margin: 2rem 0 4rem 0;
+    height: fit-content;
+    padding-bottom: 20px;
 
     .content {
-      width: 38%;
-
+      width: 42%;
       @include breakpoint_one() {
         // display: none;
       }
@@ -135,10 +135,10 @@ $oakGold: #cac492;
       font-size: 55px;
     }
     p {
-      font-size: 22px;
+      font-size: 20px;
       line-height: 212.72%;
       text-align: justify;
-      text-justify: inter-word;
+      // text-justify: inter-word;
     }
 
     #sectionIcon {
@@ -244,5 +244,40 @@ $oakGold: #cac492;
       height: 100%;
       width: 100%;
     }
+  }
+  
+  #ourValues { 
+    margin-top: 0;
+    padding-top: 0;
+    height: fit-content;
+      #ValueContent { 
+        #sectionIcon { 
+          display: none;
+        }
+        ul { 
+          display: flex;
+          gap: 30px;
+          margin-top: 2rem;
+            li { 
+              background-color: #009ba7;
+              color: white;
+              font-size: 20px;
+              padding: 12px 10px;
+              border-radius: 20px;
+            }
+        }
+      }
+  }
+}
+
+@media only screen and (max-device-width: 480px) {
+  /* styles for mobile browsers smaller than 480px; (iPhone) */
+  #ourValues { 
+      #ValueContent { 
+          ul { 
+            flex-wrap: wrap-reverse;
+            gap: 3px;
+          }
+      }
   }
 }
